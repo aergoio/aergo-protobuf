@@ -1,2 +1,2 @@
 # aergo-protobuf
-Protocol Buffer for AERGO communication.
+This is a respository for the AERGO Protocol Buffers.
