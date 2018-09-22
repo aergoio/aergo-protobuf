@@ -4,9 +4,9 @@ package types;
 option go_package = "github.com/aergoio/aergo/types";
 
 message Account {
-	bytes address = 1;
+  bytes address = 1;
 }
 
 message AccountList {
-	repeated Account accounts = 1;
+  repeated Account accounts = 1;
 }

@@ -10,8 +10,6 @@ import "blockchain.proto";
 import "account.proto";
 import "node.proto";
 
-//need option "--proto_path= .... /bitbucket.org/cloudwallet/argo-alpha/proto" when protoc generate output
-
 /* BlockService serves APIs that aergosvr provides.
  * Some methods optionally contains context path if it is also provided by REST API.
  */
@@ -54,7 +52,7 @@ service AergoRPCService {
     //   body: "transaction"
     // };    
   }
-  
+
   rpc GetState(SingleBytes) returns (State) {
   }
 
@@ -81,7 +79,7 @@ service AergoRPCService {
 
   rpc GetPeers(Empty) returns (PeerList) {
   }
-  
+
   rpc GetVotes(SingleBytes) returns (VoteList) {
   }
 }
@@ -105,7 +103,7 @@ message Output {
   bytes address =2;
   bytes value =3;
   bytes script =4;
-} 
+}
 
 message Empty {
 
@@ -116,7 +114,7 @@ message SingleBytes {
 }
 
 message Personal {
-	string passphrase =1;
+  string passphrase =1;
   Account account =2;
 }
 
@@ -126,11 +124,11 @@ message PeerList {
 }
 
 message ListParams {
-    bytes hash = 1;
-    uint64 height=2;
-    uint32 size=3;
-    uint32 offset=4;
-    bool asc=5;
+  bytes hash = 1;
+  uint64 height=2;
+  uint32 size=3;
+  uint32 offset=4;
+  bool asc=5;
 }
 
 message BlockHeaderList {
@@ -140,16 +138,16 @@ message BlockHeaderList {
 enum CommitStatus {
   TX_OK = 0;
   TX_NONCE_TOO_LOW = 1;
-	TX_ALREADY_EXISTS = 2;
-	TX_INVALID_HASH = 3;
-	TX_INVALID_FORMAT = 4;
-	TX_INSUFFICIENT_BALANCE = 5;
+  TX_ALREADY_EXISTS = 2;
+  TX_INVALID_HASH = 3;
+  TX_INVALID_FORMAT = 4;
+  TX_INSUFFICIENT_BALANCE = 5;
   TX_INTERNAL_ERROR = 6;
 }
 
 message CommitResult {
   bytes hash = 1;
-  CommitStatus error = 2; 
+  CommitStatus error = 2;
 }
 
 message CommitResultList {
