@@ -68,6 +68,12 @@ service AergoRPCService {
   rpc UnlockAccount(Personal) returns (Account) {
   }
 
+  rpc ImportAccount(ImportFormat) returns (Account) {
+  }
+
+  rpc ExportAccount(Personal) returns (SingleBytes) {
+  }
+
   rpc SignTX(Tx) returns (Tx) {
   }
 
@@ -111,11 +117,6 @@ message Empty {
 
 message SingleBytes {
   bytes value =1;
-}
-
-message Personal {
-  string passphrase =1;
-  Account account =2;
 }
 
 message PeerList {
@@ -163,4 +164,15 @@ enum VerifyStatus {
 message VerifyResult {
   Tx tx = 1;
   VerifyStatus error = 2;
+}
+
+message Personal {
+  string passphrase =1;
+  Account account =2;
+}
+
+message ImportFormat{
+  SingleBytes wif =1;
+  string oldpass =2;
+  string newpass =3;
 }
