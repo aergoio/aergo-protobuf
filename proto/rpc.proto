@@ -21,8 +21,11 @@ service AergoRPCService {
     // };
   }
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
-
   }
+
+  rpc ListBlockHeadersStream(Empty) returns (stream BlockHeader) {
+  }
+
   rpc GetBlock(SingleBytes) returns (Block) {
     // option (google.api.http) = {
     //   get: "/blocks/{blockHash}"
