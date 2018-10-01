@@ -100,18 +100,18 @@ message BlockchainStatus {
 }
 
 message Input {
-  bytes hash =1;
-  repeated bytes address =2;
-  bytes value =3;
-  bytes script =4;
+  bytes hash = 1;
+  repeated bytes address = 2;
+  bytes value = 3;
+  bytes script = 4;
 }
 
 
 message Output {
-  uint32 index =1;
-  bytes address =2;
-  bytes value =3;
-  bytes script =4;
+  uint32 index = 1;
+  bytes address = 2;
+  bytes value = 3;
+  bytes script = 4;
 }
 
 message Empty {
@@ -129,10 +129,10 @@ message PeerList {
 
 message ListParams {
   bytes hash = 1;
-  uint64 height=2;
-  uint32 size=3;
-  uint32 offset=4;
-  bool asc=5;
+  uint64 height = 2;
+  uint32 size = 3;
+  uint32 offset = 4;
+  bool asc = 5;
 }
 
 message BlockHeaderList {
@@ -144,14 +144,16 @@ enum CommitStatus {
   TX_NONCE_TOO_LOW = 1;
   TX_ALREADY_EXISTS = 2;
   TX_INVALID_HASH = 3;
-  TX_INVALID_FORMAT = 4;
-  TX_INSUFFICIENT_BALANCE = 5;
-  TX_INTERNAL_ERROR = 6;
+  TX_INVALID_SIGN = 4;
+  TX_INVALID_FORMAT = 5;
+  TX_INSUFFICIENT_BALANCE = 6;
+  TX_INTERNAL_ERROR = 7;
 }
 
 message CommitResult {
   bytes hash = 1;
   CommitStatus error = 2;
+  string detail = 3;
 }
 
 message CommitResultList {
@@ -170,12 +172,12 @@ message VerifyResult {
 }
 
 message Personal {
-  string passphrase =1;
-  Account account =2;
+  string passphrase = 1;
+  Account account = 2;
 }
 
 message ImportFormat{
-  SingleBytes wif =1;
-  string oldpass =2;
-  string newpass =3;
+  SingleBytes wif = 1;
+  string oldpass = 2;
+  string newpass = 3;
 }
