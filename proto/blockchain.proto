@@ -68,6 +68,7 @@ message State {
   uint64 balance = 2;
   bytes codeHash = 3;
   bytes storageRoot = 4;
+  uint64 sqlRecoveryPoint = 5;
 }
 
 message Receipt {
