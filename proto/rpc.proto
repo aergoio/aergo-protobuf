@@ -23,7 +23,7 @@ service AergoRPCService {
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
 
-  rpc ListBlockHeadersStream(Empty) returns (stream BlockHeader) {
+  rpc ListBlockStream(Empty) returns (stream Block) {
   }
 
   rpc GetBlock(SingleBytes) returns (Block) {
