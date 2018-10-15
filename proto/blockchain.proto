@@ -71,6 +71,13 @@ message State {
   uint64 sqlRecoveryPoint = 5;
 }
 
+message StateProof {
+  bool inclusion = 1;
+  bytes proofKey = 2;
+  bytes proofVal = 3;
+  repeated bytes auditPath = 4;
+}
+
 message Receipt {
   bytes contractAddress = 1;
   string status = 2;
