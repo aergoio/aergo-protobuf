@@ -72,10 +72,11 @@ message State {
 }
 
 message StateProof {
-  bool inclusion = 1;
-  bytes proofKey = 2;
-  bytes proofVal = 3;
-  repeated bytes auditPath = 4;
+  State State = 1;
+  bool inclusion = 2;
+  bytes proofKey = 3;
+  bytes proofVal = 4;
+  repeated bytes auditPath = 5;
 }
 
 message Receipt {

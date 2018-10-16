@@ -59,6 +59,9 @@ service AergoRPCService {
   rpc GetState(SingleBytes) returns (State) {
   }
 
+  rpc GetStateAndProof(SingleBytes) returns (StateProof) {
+  }
+
   rpc CreateAccount(Personal) returns (Account) {
   }
 
