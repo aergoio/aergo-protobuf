@@ -21,6 +21,7 @@ message BlockHeader {
   uint64 confirms = 6;
   bytes pubKey = 7;
   bytes sign = 8;
+  bytes coinbaseAccount = 9;
 }
 
 message BlockBody {
