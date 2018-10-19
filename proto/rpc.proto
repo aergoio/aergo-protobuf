@@ -59,7 +59,7 @@ service AergoRPCService {
   rpc GetState(SingleBytes) returns (State) {
   }
 
-  rpc GetStateAndProof(SingleBytes) returns (StateProof) {
+  rpc GetStateAndProof(AccountAndRoot) returns (StateProof) {
   }
 
   rpc CreateAccount(Personal) returns (Account) {
@@ -122,7 +122,12 @@ message Empty {
 }
 
 message SingleBytes {
-  bytes value =1;
+  bytes value = 1;
+}
+
+message AccountAndRoot {
+  bytes Account = 1;
+  bytes Root = 2;
 }
 
 message PeerList {
