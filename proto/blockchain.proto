@@ -18,10 +18,11 @@ message BlockHeader {
   int64 timestamp = 3;
   bytes blocksRootHash = 4;
   bytes txsRootHash = 5;
-  uint64 confirms = 6;
-  bytes pubKey = 7;
-  bytes sign = 8;
-  bytes coinbaseAccount = 9;
+  bytes receiptsRootHash = 6;
+  uint64 confirms = 7;
+  bytes pubKey = 8;
+  bytes sign = 9;
+  bytes coinbaseAccount = 10;
 }
 
 message BlockBody {
