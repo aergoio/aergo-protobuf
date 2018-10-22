@@ -151,6 +151,7 @@ message GetBlockHeadersResponse {
   ResultStatus status = 1;
   repeated bytes hashes = 2;
   repeated BlockHeader headers = 3;
+  bool hasNext = 4;
 }
 
 // GetBlockRequest request blocks informations, not just single block.
@@ -162,6 +163,7 @@ message GetBlockRequest {
 message GetBlockResponse {
   ResultStatus status = 1;
   repeated Block blocks = 2;
+  bool hasNext = 3;
 }
 
 message NewTransactionsNotice {
@@ -175,6 +177,7 @@ message GetTransactionsResponse {
   ResultStatus status = 1;
   repeated bytes hashes = 2;
   repeated Tx txs = 3;
+  bool hasNext = 4;
 }
 // GetMissingRequest 
 message GetMissingRequest {
