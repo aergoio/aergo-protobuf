@@ -187,6 +187,26 @@ message GetMissingRequest {
   bytes stophash = 2;
 }
 
+message GetAncestorRequest {
+  // Hash indicated referenced sparse block hash array of longest chain(caller).
+  repeated bytes hashes = 1;
+}
+
+message GetAncestorResponse {
+  ResultStatus status = 1;
+  bytes ancestorHash = 2;
+  uint64 ancestorNo = 3;
+}
+
+message GetHashByNo {
+  uint64 blockNo = 1;
+}
+
+message GetHashByNoResponse {
+  ResultStatus status = 1;
+  bytes blockHash = 2;
+}
+
 // GetBlockResponse contains response of GetBlockRequest.
 //message GetMissingResponse {
  //   MessageData messageData = 1;
