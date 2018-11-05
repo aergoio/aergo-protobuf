@@ -207,6 +207,24 @@ message GetHashByNoResponse {
   bytes blockHash = 2;
 }
 
+// GetHashesRequest
+message GetHashesRequest {
+    // prevHash indicated referenced block hash. server will return hashes after this block.
+    bytes prevHash = 1;
+    // prevNumber indicated referenced block
+    uint64 prevNumber=2;
+    // maximum count of hashes that want to get
+    uint64 size=3;
+}
+
+// GetHashesResponse contains response of GetHashesRequest.
+message GetHashesResponse {
+    ResultStatus status = 1;
+    repeated bytes hashes = 2;
+    bool hasNext = 3;
+}
+
+
 // GetBlockResponse contains response of GetBlockRequest.
 //message GetMissingResponse {
  //   MessageData messageData = 1;
