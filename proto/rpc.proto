@@ -95,6 +95,9 @@ service AergoRPCService {
 
   rpc GetVotes(SingleBytes) returns (VoteList) {
   }
+
+  rpc GetStaking(SingleBytes) returns (Staking) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -195,4 +198,18 @@ message ImportFormat{
   SingleBytes wif = 1;
   string oldpass = 2;
   string newpass = 3;
+}
+
+message Staking {
+  uint64 amount = 1;
+  uint64 when = 2;
+}
+
+message Vote {
+  bytes candidate = 1;
+  uint64 amount = 2;
+}
+
+message VoteList {
+  repeated Vote votes = 1;
 }
