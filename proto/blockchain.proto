@@ -78,7 +78,9 @@ message StateProof {
   bool inclusion = 2;
   bytes proofKey = 3;
   bytes proofVal = 4;
-  repeated bytes auditPath = 5;
+  bytes bitmap = 5;
+  uint32 height = 6;
+  repeated bytes auditPath = 7;
 }
 
 message Receipt {

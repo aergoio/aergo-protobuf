@@ -132,6 +132,7 @@ message SingleBytes {
 message AccountAndRoot {
   bytes Account = 1;
   bytes Root = 2;
+  bool Compressed = 3;
 }
 
 message Peer {
