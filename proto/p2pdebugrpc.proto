@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package types;
+option go_package = "github.com/aergoio/aergo/types";
+
+import "node.proto";
+import "rpc.proto";
+
+/* BlockService serves APIs that aergosvr provides.
+ * Some methods optionally contains context path if it is also provided by REST API.
+ */
+service P2PDebugRPCService {
+  // connect to peer
+  rpc P2PConn(PeerAddress) returns (SingleBytes) {
+  }
+
+  // send message to target peer. Arguements are differ by subprotocol
+  rpc P2PSend(P2PSendReq) returns (SingleBytes) {
+  }
+}
+
+message P2PSendReq {
+  bytes peerID = 1;
+  uint32 subProtocol = 2;
+  repeated bytes values = 3;
+}
