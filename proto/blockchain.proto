@@ -74,13 +74,27 @@ message State {
 }
 
 message StateProof {
-  State State = 1;
+  State state = 1;
   bool inclusion = 2;
   bytes proofKey = 3;
   bytes proofVal = 4;
   bytes bitmap = 5;
   uint32 height = 6;
   repeated bytes auditPath = 7;
+}
+message ContractVarProof{
+  bytes value = 1;
+  bool inclusion = 2;
+  bytes proofKey = 3;
+  bytes proofVal = 4;
+  bytes bitmap = 5;
+  uint32 height = 6;
+  repeated bytes auditPath = 7;
+}
+
+message StateQueryProof {
+  StateProof contractProof = 1;
+  ContractVarProof varProof = 2;
 }
 
 message Receipt {
@@ -108,3 +122,12 @@ message Query {
   bytes contractAddress = 1;
   bytes queryinfo= 2;
 }
+
+message StateQuery {
+  bytes contractAddress = 1;
+  string varName = 2;
+  string varIndex = 3;
+  bytes Root = 4;
+  bool Compressed = 5;
+}
+

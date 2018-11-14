@@ -90,6 +90,9 @@ service AergoRPCService {
   rpc QueryContract(Query) returns (SingleBytes) {
   }
 
+  rpc QueryContractState(StateQuery) returns (StateQueryProof) {
+  }
+
   rpc GetPeers(Empty) returns (PeerList) {
   }
 
