@@ -1,0 +1,27 @@
+syntax = "proto3";
+package types;
+option go_package = "github.com/aergoio/aergo/types";
+
+enum MetricType {
+    // NOTHING should not be used.
+    NOTHING = 0;
+
+    // Metric for p2p network transfer
+    P2P_NETWORK = 1;
+}
+
+message MetricsRequest {
+    repeated MetricType types = 1;
+}
+
+message Metrics {
+    repeated PeerMetric peers = 1;
+}
+
+message PeerMetric {
+    bytes peerID = 1;
+    int64 sumIn = 2;
+    int64 avrIn = 3;
+    int64 sumOut = 4;
+    int64 avrOut = 5;
+}
