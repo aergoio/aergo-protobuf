@@ -133,7 +133,7 @@ message StateQuery {
   bytes contractAddress = 1;
   string varName = 2;
   string varIndex = 3;
-  bytes Root = 4;
-  bool Compressed = 5;
+  bytes root = 4;
+  bool compressed = 5;
 }
 
