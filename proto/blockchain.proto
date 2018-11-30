@@ -47,10 +47,10 @@ message TxBody {
   uint64 nonce = 1;
   bytes account = 2;
   bytes recipient = 3;
-  uint64 amount = 4;
+  bytes amount = 4;
   bytes payload = 5;
   uint64 limit = 6;
-  uint64 price = 7;
+  bytes price = 7;
   TxType type = 8;
   bytes sign = 9;
 }
@@ -67,7 +67,7 @@ message TxInBlock {
 
 message State {
   uint64 nonce = 1;
-  uint64 balance = 2;
+  bytes balance = 2;
   bytes codeHash = 3;
   bytes storageRoot = 4;
   uint64 sqlRecoveryPoint = 5;
