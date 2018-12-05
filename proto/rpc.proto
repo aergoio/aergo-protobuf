@@ -209,13 +209,13 @@ message ImportFormat{
 }
 
 message Staking {
-  uint64 amount = 1;
+  bytes amount = 1;
   uint64 when = 2;
 }
 
 message Vote {
   bytes candidate = 1;
-  uint64 amount = 2;
+  bytes amount = 2;
 }
 
 message VoteList {
