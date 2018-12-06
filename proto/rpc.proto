@@ -16,7 +16,7 @@ import "metric.proto";
  * Some methods optionally contains context path if it is also provided by REST API.
  */
 service AergoRPCService {
-  rpc NodeState (SingleBytes) returns (SingleBytes) {}
+  rpc NodeState (NodeReq) returns (SingleBytes) {}
 
   rpc Metric (MetricsRequest) returns (Metrics) {}
 
@@ -220,4 +220,9 @@ message Vote {
 
 message VoteList {
   repeated Vote votes = 1;
+}
+
+message NodeReq {
+  bytes timeout = 1;
+  bytes component = 2;
 }
