@@ -134,6 +134,12 @@ message NewBlockNotice {
   uint64 blockNo = 2;
 }
 
+message BlockProducedNotice {
+  bytes producerID = 1;
+  uint64 blockNo = 2;
+  Block block = 3;
+}
+
 // GetBlockHeadersRequest 
 message GetBlockHeadersRequest {
   // Hash indicated referenced block hash. server will return headers from this block.
