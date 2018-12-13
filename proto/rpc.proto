@@ -105,6 +105,9 @@ service AergoRPCService {
 
   rpc GetStaking(SingleBytes) returns (Staking) {
   }
+
+  rpc GetNameInfo(SingleBytes) returns (Name) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -225,4 +228,9 @@ message VoteList {
 message NodeReq {
   bytes timeout = 1;
   bytes component = 2;
+}
+
+message Name {
+  bytes name = 1;
+  bytes owner = 2;
 }
