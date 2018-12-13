@@ -28,7 +28,13 @@ service AergoRPCService {
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
 
+  rpc ListBlockMetadata(ListParams) returns (BlockMetadataList) {
+  }
+
   rpc ListBlockStream(Empty) returns (stream Block) {
+  }
+
+  rpc ListBlockMetadataStream(Empty) returns (stream BlockMetadata) {
   }
 
   rpc GetBlock(SingleBytes) returns (Block) {
@@ -162,6 +168,16 @@ message ListParams {
 
 message BlockHeaderList {
   repeated Block blocks = 1;
+}
+
+message BlockMetadata {
+  bytes hash = 1;
+  BlockHeader header = 2;
+  int32 txcount = 3;
+}
+
+message BlockMetadataList {
+  repeated BlockMetadata blocks = 1;
 }
 
 enum CommitStatus {
