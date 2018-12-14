@@ -106,7 +106,7 @@ service AergoRPCService {
   rpc GetStaking(SingleBytes) returns (Staking) {
   }
 
-  rpc GetNameInfo(SingleBytes) returns (Name) {
+  rpc GetNameInfo(Name) returns (NameInfo) {
   }
 }
 
@@ -231,6 +231,10 @@ message NodeReq {
 }
 
 message Name {
-  bytes name = 1;
+  string name = 1;
+}
+
+message NameInfo {
+  Name name = 1;
   bytes owner = 2;
 }
