@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package types;
+option go_package = "github.com/aergoio/aergo/types";
+
+import "node.proto";
+import "p2p.proto";
+
+// query to polaris
+message MapQuery {
+    Status status = 1;
+    bool addMe = 2;
+    int32 size = 3;
+    repeated bytes excludes = 4;
+}
+
+message MapResponse {
+    ResultStatus status = 1;
+    repeated PeerAddress addresses = 2;
+}
