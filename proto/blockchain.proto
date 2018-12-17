@@ -3,9 +3,6 @@ syntax = "proto3";
 package types;
 option go_package = "github.com/aergoio/aergo/types";
 
-//import "google/protobuf/any.proto";
-//import "google/protobuf/timestamp.proto";
-
 message Block {
   bytes hash = 1;
   BlockHeader header = 2;
@@ -46,12 +43,12 @@ message Tx {
 
 message TxBody {
   uint64 nonce = 1;
-  bytes account = 2;
-  bytes recipient = 3;
-  bytes amount = 4;
+  bytes account = 2; // decoded account address
+  bytes recipient = 3; // decoded account address
+  bytes amount = 4; // variable-length big integer
   bytes payload = 5;
   uint64 limit = 6;
-  bytes price = 7;
+  bytes price = 7; // variable-length big integer
   TxType type = 8;
   bytes sign = 9;
 }
