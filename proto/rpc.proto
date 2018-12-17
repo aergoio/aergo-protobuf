@@ -3,115 +3,132 @@ syntax = "proto3";
 package types;
 option go_package = "github.com/aergoio/aergo/types";
 
-// import "google/api/annotations.proto";
-//import "google/protobuf/timestamp.proto";
-//import "bitbucket.org/cloudwallet/argo-alpha/proto/blockchain.proto";
 import "blockchain.proto";
 import "account.proto";
 import "node.proto";
 import "p2p.proto";
 import "metric.proto";
 
-/* BlockService serves APIs that aergosvr provides.
- * Some methods optionally contains context path if it is also provided by REST API.
+/**
+ * AergoRPCService is the main RPC service providing endpoints to interact 
+ * with the node and blockchain. If not otherwise noted, methods are unary requests.
  */
 service AergoRPCService {
+  // Returns the current state of this node
   rpc NodeState (NodeReq) returns (SingleBytes) {}
 
+  // Returns node metrics according to request 
   rpc Metric (MetricsRequest) returns (Metrics) {}
 
+  // Returns current blockchain status (best block's height and hash)
   rpc Blockchain (Empty) returns (BlockchainStatus) {
-    // option (google.api.http) = {
-    //   get: "/blockchain"
-    // };
   }
+
+  // Returns list of Blocks without body according to request
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
 
+  // Returns list of block metadata (hash, header, and number of transactions) according to request
   rpc ListBlockMetadata(ListParams) returns (BlockMetadataList) {
   }
 
+  // Returns a stream of new blocks as they get added to the blockchain
   rpc ListBlockStream(Empty) returns (stream Block) {
   }
 
+  // Returns a stream of new block's metadata as they get added to the blockchain
   rpc ListBlockMetadataStream(Empty) returns (stream BlockMetadata) {
   }
 
-  rpc GetBlock(SingleBytes) returns (Block) {
-    // option (google.api.http) = {
-    //   get: "/blocks/{blockHash}"
-    // };    
-  }
-  rpc GetTX(SingleBytes) returns (Tx) {
-    // option (google.api.http) = {
-    //   get: "/transactions/{value}"
-    // };    
+  // Return a single block, queried by hash or number
+  rpc GetBlock(SingleBytes) returns (Block) {   
   }
 
+  // Return a single transaction, queried by transaction hash
+  rpc GetTX(SingleBytes) returns (Tx) {
+  }
+
+  // Return information about transaction in block, queried by transaction hash
   rpc GetBlockTX(SingleBytes) returns (TxInBlock) {
   }
 
+  // Return transaction receipt, queried by transaction hash
   rpc GetReceipt(SingleBytes) returns (Receipt) {
   }
 
+  // Return ABI stored at contract address
   rpc GetABI(SingleBytes) returns (ABI) {
   }
 
+  // Sign and send a transaction from an unlocked account
   rpc SendTX(Tx) returns (CommitResult) {
   }
 
-  rpc CommitTX(TxList) returns (CommitResultList) {
-    // option (google.api.http) = {
-    //   post: "/transactions"
-    //   body: "transaction"
-    // };    
-  }
-
-  rpc GetState(SingleBytes) returns (State) {
-  }
-
-  rpc GetStateAndProof(AccountAndRoot) returns (StateProof) {
-  }
-
-  rpc CreateAccount(Personal) returns (Account) {
-  }
-
-  rpc GetAccounts(Empty) returns (AccountList) {
-  }
-
-  rpc LockAccount(Personal) returns (Account) {
-  }
-
-  rpc UnlockAccount(Personal) returns (Account) {
-  }
-
-  rpc ImportAccount(ImportFormat) returns (Account) {
-  }
-
-  rpc ExportAccount(Personal) returns (SingleBytes) {
-  }
-
+  // Sign transaction with unlocked account
   rpc SignTX(Tx) returns (Tx) {
   }
 
+  // Verify validity of transaction
   rpc VerifyTX(Tx) returns (VerifyResult) {
   }
 
+  // Commit a signed transaction
+  rpc CommitTX(TxList) returns (CommitResultList) {
+  }
+
+  // Return state of account
+  rpc GetState(SingleBytes) returns (State) {
+  }
+
+  // Return state of account, including merkle proof
+  rpc GetStateAndProof(AccountAndRoot) returns (StateProof) {
+  }
+
+  // Create a new account in this node
+  rpc CreateAccount(Personal) returns (Account) {
+  }
+
+  // Return list of accounts in this node
+  rpc GetAccounts(Empty) returns (AccountList) {
+  }
+
+  // Lock account in this node
+  rpc LockAccount(Personal) returns (Account) {
+  }
+
+  // Unlock account in this node
+  rpc UnlockAccount(Personal) returns (Account) {
+  }
+
+  // Import account to this node
+  rpc ImportAccount(ImportFormat) returns (Account) {
+  }
+
+  // Export account stored in this node
+  rpc ExportAccount(Personal) returns (SingleBytes) {
+  }
+
+  // Query a contract method
   rpc QueryContract(Query) returns (SingleBytes) {
   }
 
+  // Query contract state
   rpc QueryContractState(StateQuery) returns (StateQueryProof) {
   }
 
+  // Return list of peers of this node and their state
   rpc GetPeers(Empty) returns (PeerList) {
   }
 
+  // Return list of votes
   rpc GetVotes(SingleBytes) returns (VoteList) {
   }
 
+  // Return staking information
   rpc GetStaking(SingleBytes) returns (Staking) {
   }
 
+  // Return name information
   rpc GetNameInfo(Name) returns (NameInfo) {
   }
 }
