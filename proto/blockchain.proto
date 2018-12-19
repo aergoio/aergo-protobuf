@@ -9,6 +9,8 @@ message Block {
   BlockBody body = 3;
 }
 
+// CAUTION: THE SIGN MUST BE THE LAST FIELD. DO NOT ADD A NEW FIELD AFTER THE
+// SIGN FIELD.
 message BlockHeader {
   bytes chainID = 1;
   bytes prevBlockHash = 2;
@@ -19,8 +21,8 @@ message BlockHeader {
   bytes receiptsRootHash = 7;
   uint64 confirms = 8;
   bytes pubKey = 9;
-  bytes sign = 10;
-  bytes coinbaseAccount = 11;
+  bytes coinbaseAccount = 10;
+  bytes sign = 11;
 }
 
 message BlockBody {
