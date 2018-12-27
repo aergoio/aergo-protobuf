@@ -114,6 +114,7 @@ message Status {
   PeerAddress sender = 1;
   bytes bestBlockHash = 2;
   uint64 bestHeight = 3;
+  bytes chainID = 4;
 }
 
 message GoAwayNotice {

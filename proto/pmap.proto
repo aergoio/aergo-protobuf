@@ -17,4 +17,5 @@ message MapQuery {
 message MapResponse {
     ResultStatus status = 1;
     repeated PeerAddress addresses = 2;
+    string message = 3;
 }
