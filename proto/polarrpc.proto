@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package types;
+option go_package = "github.com/aergoio/aergo/types";
+
+import "node.proto";
+import "rpc.proto";
+import "metric.proto";
+
+service PolarisRPCService {
+    // Returns the current state of this node
+    rpc NodeState (NodeReq) returns (SingleBytes) {}
+
+    // Returns node metrics according to request
+    rpc Metric (MetricsRequest) returns (Metrics) {}
+
+    rpc CurrentList (Paginations) returns (PolarisPeerList) {}
+
+    rpc WhiteList (Paginations) returns (PolarisPeerList) {}
+
+    rpc BlackList (Paginations) returns (PolarisPeerList) {}
+}
+
+message Paginations {
+    bytes ref = 1;
+    uint32 size = 3;
+}
+
+message PolarisPeerList {
+    uint32 total = 1;
+    bool hasNext = 2;
+    repeated PolarisPeer peers = 3;
+}
+
+message PolarisPeer {
+  PeerAddress address = 1;
+  int64 connected = 2;
+  // lastCheck contains unixtimestamp with nanoseconds precision
+  int64 lastCheck = 3;
+
+}
+
