@@ -172,6 +172,7 @@ message Peer {
   PeerAddress address = 1;
   NewBlockNotice bestblock = 2;
   int32 state = 3;
+  bool hidden = 4;
 }
 
 message PeerList {
