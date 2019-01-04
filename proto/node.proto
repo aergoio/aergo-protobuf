@@ -4,8 +4,8 @@ package types;
 option go_package = "github.com/aergoio/aergo/types";
 
 message PeerAddress {
-  // address is stored in form of IPv4-mapped IPv6 addresses with network byte order
-  bytes address = 1;
+  // address is string representation of ip address or domain name.
+  string address = 1;
   uint32 port = 2;
   bytes peerID = 3;
 }
