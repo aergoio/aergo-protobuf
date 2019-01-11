@@ -81,7 +81,7 @@ service AergoRPCService {
   }
 
   // Return state of account, including merkle proof
-  rpc GetStateAndProof(AccountAndRoot) returns (StateProof) {
+  rpc GetStateAndProof(AccountAndRoot) returns (AccountProof) {
   }
 
   // Create a new account in this node
