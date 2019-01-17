@@ -53,13 +53,13 @@ message sometype {
 ```
 
 Add following line to the changelog
-```md
+```diff
 + somefile.proto::sometype::payload (type: bytes, fieldNo: 3)
 ```
 
 ## Remove
 
-Just remove field. Remember that you should not reorder the field numbers.
+Do not remove field. Keep it as reserved. Remember that you should not reorder the field numbers.
 
 eg. somefile.proto
 ```
@@ -79,7 +79,7 @@ message sometype {
 ```
 
 Add following line to the changelog
-```md
+```diff
 - somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
 ```
 
@@ -104,11 +104,12 @@ message sometype {
 ```
 
 Add following lines to the changelog
-```md
+```diff
 - somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
 + somefile.proto::sometype::hash (type: string, fieldNo: 3)
 ```
 
 see also
+* [reserved fields in proto3](https://developers.google.com/protocol-buffers/docs/proto3#reserved)
 * [updating message type in proto3](https://developers.google.com/protocol-buffers/docs/proto3#updating)
 * [protobuf message structure](https://developers.google.com/protocol-buffers/docs/encoding#structure)
