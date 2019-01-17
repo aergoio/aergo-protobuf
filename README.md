@@ -54,7 +54,7 @@ message sometype {
 
 Add following line to the changelog
 ```md
-* <span style="color:green">+ somefile.proto::sometype::payload (type: bytes, fieldNo: 3)</span>
++ somefile.proto::sometype::payload (type: bytes, fieldNo: 3)
 ```
 
 ## Remove
@@ -80,7 +80,7 @@ message sometype {
 
 Add following line to the changelog
 ```md
-* <span style="color:red">- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)</span>
+- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
 ```
 
 ## Update (Remove + Add)
@@ -105,8 +105,8 @@ message sometype {
 
 Add following lines to the changelog
 ```md
-* <span style="color:red">- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)</span>
-* <span style="color:green">+ somefile.proto::sometype::hash (type: string, fieldNo: 3)</span>
+- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
++ somefile.proto::sometype::hash (type: string, fieldNo: 3)
 ```
 
 see also
