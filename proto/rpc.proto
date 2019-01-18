@@ -40,8 +40,16 @@ service AergoRPCService {
   rpc ListBlockMetadataStream(Empty) returns (stream BlockMetadata) {
   }
 
-  // Return a single block, queried by hash or number
+  // Return a single block incl. header and body, queried by hash or number
   rpc GetBlock(SingleBytes) returns (Block) {   
+  }
+
+  // Return a single block's metdata (hash, header, and number of transactions), queried by hash or number
+  rpc GetBlockMetadata(SingleBytes) returns (BlockMetadata) {
+  }
+
+  // Return a single block's body, queried by hash or number and list parameters
+  rpc GetBlockBody(BlockBodyParams) returns (BlockBodyPaged) {
   }
 
   // Return a single transaction, queried by transaction hash
@@ -185,6 +193,23 @@ message ListParams {
   uint32 size = 3;
   uint32 offset = 4;
   bool asc = 5;
+}
+
+message PageParams {
+  uint32 offset = 1;
+  uint32 size = 2;
+}
+
+message BlockBodyPaged {
+  uint32 total = 1;
+  uint32 offset = 2;
+  uint32 size = 3;
+  BlockBody body = 4;
+}
+
+message BlockBodyParams {
+  bytes hashornumber = 1;
+  PageParams paging = 2;
 }
 
 message BlockHeaderList {

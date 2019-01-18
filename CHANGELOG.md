@@ -1,9 +1,11 @@
 ## Development (master)
 ```diff
 + polarrpc.proto
+
 + rpc.proto::Peer::hidden (type: bool, fieldNo: 4)
 - node.proto::PeerAddress::address (type: bytes, fieldNo: 1)
 + node.proto::PeerAddress::address (type: string, fieldNo: 1)
+
 - blockchain.proto::StateProof (type: message)
 + blockchain.proto::AccountProof (type: message)
 - blockchain.proto::ContractVarProof::key (type: string, fieldNo: 3)
@@ -16,6 +18,12 @@
 + blockchain.proto::StateQuery::storageKeys (type: repeated string, fieldNo: 2)
 - rpc.proto::AergoRPCService::GetStateAndProof (arg: AccountAndRoot, ret: StateProof)
 + rpc.proto::AergoRPCService::GetStateAndProof (arg: AccountAndRoot, ret: AccountProof)
+
++ rpc.proto::AergoRPCService::GetBlockMetadata
++ rpc.proto::AergoRPCService::GetBlockBody
++ rpc.proto::PageParams (type: message)
++ rpc.proto::BlockBodyPaged (type: message)
++ rpc.proto::BlockBodyParams (type: message)
 ```
 
 ## 0.9.5 (December 27, 2018)
