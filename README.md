@@ -1,10 +1,12 @@
 # aergo-protobuf
 
-This is a respository for the AERGO Protocol Buffers.
+This respository stores the AERGO Protocol Buffer definitions that are used by different server and client implementations.
 
-# Change rule
+## Change rule
 
-Protobuf recognize message as a key-value pair. So you __must not remove or reuse already occupied field number__. For example, you must not change protobuf in a following way:
+Protobuffer recognizes messages as ordered key-value pairs.
+You __must not remove or reuse already occupied field numbers__.
+For example, you must not change protobuf in a following way:
 
 ```proto
 // from
@@ -20,7 +22,7 @@ message sometype {
 }
 ```
 
-Rather change like this
+Rather change like this:
 
 ```proto
 message sometype {
@@ -30,13 +32,15 @@ message sometype {
 }
 ```
 
-Follow these rules for backword compatibility. Remember that you should add any changes to the [CHANGELOG](./CHANGELOG.md).
+Follow these rules for backwards compatibility. Remember that you should add any changes to the [CHANGELOG](./CHANGELOG.md).
 
-## Add
+### Add
 
-Just add a new field (or message). Protobuf parser automatically ignore unknown fields. Client can check if unknown fields exists or not.
+Just add a new field (or message).
+Assing additional fields does not break backwards compatability, as protobuffer parser automatically ignores unknown fields.
+A client can check if unknown fields exists or not.
 
-eg. somefile.proto
+Example: somefile.proto
 ```
 // from
 message sometype {
@@ -52,16 +56,17 @@ message sometype {
 }
 ```
 
-Add following line to the changelog
+Please add the following line to the changelog:
 ```diff
 + somefile.proto::sometype::payload (type: bytes, fieldNo: 3)
 ```
 
-## Remove
+### Remove
 
-Do not remove field. Keep it as reserved. Remember that you should not reorder the field numbers.
+Please do not just remove a field, as this breaks backwards compatability.
+You can keep removed fields as "reserved". Remember that you should not reorder the field numbers.
 
-eg. somefile.proto
+Example: somefile.proto
 ```
 // from
 message sometype {
@@ -78,16 +83,16 @@ message sometype {
 }
 ```
 
-Add following line to the changelog
+Add the following line to the changelog:
 ```diff
 - somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
 ```
 
-## Update (Remove + Add)
+### Update (Remove + Add)
 
-Just a combination of remove & add
+Just a combination of remove and add.
 
-eg. somefile.proto
+Example: somefile.proto
 ```
 // from
 message sometype {
@@ -103,13 +108,14 @@ message sometype {
 }
 ```
 
-Add following lines to the changelog
+Add the following lines to the changelog:
 ```diff
 - somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
 + somefile.proto::sometype::hash (type: string, fieldNo: 3)
 ```
 
-see also
-* [reserved fields in proto3](https://developers.google.com/protocol-buffers/docs/proto3#reserved)
-* [updating message type in proto3](https://developers.google.com/protocol-buffers/docs/proto3#updating)
-* [protobuf message structure](https://developers.google.com/protocol-buffers/docs/encoding#structure)
+### See also
+
+* [Reserved fields in proto3](https://developers.google.com/protocol-buffers/docs/proto3#reserved)
+* [Updating message type in proto3](https://developers.google.com/protocol-buffers/docs/proto3#updating)
+* [Protobuf message structure](https://developers.google.com/protocol-buffers/docs/encoding#structure)
