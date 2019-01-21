@@ -24,6 +24,10 @@ service AergoRPCService {
   rpc Blockchain (Empty) returns (BlockchainStatus) {
   }
 
+  // Returns current blockchain's basic information
+  rpc GetChainInfo (Empty) returns (ChainInfo) {
+  }
+
   // Returns list of Blocks without body according to request
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
@@ -145,6 +149,23 @@ service AergoRPCService {
 message BlockchainStatus {
   bytes best_block_hash = 1;
   uint64 best_height = 2;
+}
+
+message ChainId {
+  string magic = 1;
+  bool public = 2;
+  bool mainnet = 3;
+  bytes coinbasefee = 4;
+  string consensus = 5;
+}
+
+// ChainInfo returns chain configuration
+message ChainInfo {
+  ChainId chainid = 1;
+  uint32 bpnumber = 2;
+  uint64 maxblocksize = 3;
+  bytes maxtokens = 4;
+  bytes stakingminimum = 5;
 }
 
 message Input {

@@ -28,6 +28,10 @@
 + rpc.proto::PageParams (type: message)
 + rpc.proto::BlockBodyPaged (type: message)
 + rpc.proto::BlockBodyParams (type: message)
+
++ rpc.proto::AergoRPCService::GetChainInfo
++ rpc.proto::ChainId (type: message)
++ rpc.proto::ChainInfo (type: message)
 ```
 
 ## 0.9.5 (December 27, 2018)
