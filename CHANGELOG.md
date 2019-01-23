@@ -1,13 +1,6 @@
 ## master (unreleased)
 
 ```diff
-+ polarrpc.proto
-
-+ rpc.proto::Peer::hidden (type: bool, fieldNo: 4)
-
-- node.proto::PeerAddress::address (type: bytes, fieldNo: 1)
-+ node.proto::PeerAddress::address (type: string, fieldNo: 1)
-
 - blockchain.proto::StateProof (type: message)
 + blockchain.proto::AccountProof (type: message)
 
@@ -32,6 +25,16 @@
 + rpc.proto::AergoRPCService::GetChainInfo
 + rpc.proto::ChainId (type: message)
 + rpc.proto::ChainInfo (type: message)
+```
+
+## 0.10.0 (January 23, 2019)
+```diff
++ polarrpc.proto
+
++ rpc.proto::Peer::hidden (type: bool, fieldNo: 4)
+
+- node.proto::PeerAddress::address (type: bytes, fieldNo: 1)
++ node.proto::PeerAddress::address (type: string, fieldNo: 1)
 ```
 
 ## 0.9.5 (December 27, 2018)
