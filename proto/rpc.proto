@@ -173,6 +173,7 @@ message Peer {
   NewBlockNotice bestblock = 2;
   int32 state = 3;
   bool hidden = 4;
+  int64 lashCheck = 5;
 }
 
 message PeerList {
