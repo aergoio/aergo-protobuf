@@ -24,6 +24,10 @@ service AergoRPCService {
   rpc Blockchain (Empty) returns (BlockchainStatus) {
   }
 
+  // Returns current blockchain's basic information
+  rpc GetChainInfo (Empty) returns (ChainInfo) {
+  }
+
   // Returns list of Blocks without body according to request
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
@@ -40,8 +44,16 @@ service AergoRPCService {
   rpc ListBlockMetadataStream(Empty) returns (stream BlockMetadata) {
   }
 
-  // Return a single block, queried by hash or number
+  // Return a single block incl. header and body, queried by hash or number
   rpc GetBlock(SingleBytes) returns (Block) {   
+  }
+
+  // Return a single block's metdata (hash, header, and number of transactions), queried by hash or number
+  rpc GetBlockMetadata(SingleBytes) returns (BlockMetadata) {
+  }
+
+  // Return a single block's body, queried by hash or number and list parameters
+  rpc GetBlockBody(BlockBodyParams) returns (BlockBodyPaged) {
   }
 
   // Return a single transaction, queried by transaction hash
@@ -81,7 +93,7 @@ service AergoRPCService {
   }
 
   // Return state of account, including merkle proof
-  rpc GetStateAndProof(AccountAndRoot) returns (StateProof) {
+  rpc GetStateAndProof(AccountAndRoot) returns (AccountProof) {
   }
 
   // Create a new account in this node
@@ -139,6 +151,23 @@ message BlockchainStatus {
   uint64 best_height = 2;
 }
 
+message ChainId {
+  string magic = 1;
+  bool public = 2;
+  bool mainnet = 3;
+  bytes coinbasefee = 4;
+  string consensus = 5;
+}
+
+// ChainInfo returns chain configuration
+message ChainInfo {
+  ChainId chainid = 1;
+  uint32 bpnumber = 2;
+  uint64 maxblocksize = 3;
+  bytes maxtokens = 4;
+  bytes stakingminimum = 5;
+}
+
 message Input {
   bytes hash = 1;
   repeated bytes address = 2;
@@ -186,6 +215,23 @@ message ListParams {
   uint32 size = 3;
   uint32 offset = 4;
   bool asc = 5;
+}
+
+message PageParams {
+  uint32 offset = 1;
+  uint32 size = 2;
+}
+
+message BlockBodyPaged {
+  uint32 total = 1;
+  uint32 offset = 2;
+  uint32 size = 3;
+  BlockBody body = 4;
+}
+
+message BlockBodyParams {
+  bytes hashornumber = 1;
+  PageParams paging = 2;
 }
 
 message BlockHeaderList {

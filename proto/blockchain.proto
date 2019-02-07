@@ -74,28 +74,30 @@ message State {
   uint64 sqlRecoveryPoint = 5;
 }
 
-message StateProof {
+message AccountProof {
   State state = 1;
   bool inclusion = 2;
-  bytes proofKey = 3;
-  bytes proofVal = 4;
-  bytes bitmap = 5;
-  uint32 height = 6;
-  repeated bytes auditPath = 7;
+  bytes key = 3;
+  bytes proofKey = 4;
+  bytes proofVal = 5;
+  bytes bitmap = 6;
+  uint32 height = 7;
+  repeated bytes auditPath = 8;
 }
 message ContractVarProof{
   bytes value = 1;
   bool inclusion = 2;
-  bytes proofKey = 3;
-  bytes proofVal = 4;
-  bytes bitmap = 5;
-  uint32 height = 6;
-  repeated bytes auditPath = 7;
+  string key = 3;
+  bytes proofKey = 4;
+  bytes proofVal = 5;
+  bytes bitmap = 6;
+  uint32 height = 7;
+  repeated bytes auditPath = 8;
 }
 
 message StateQueryProof {
-  StateProof contractProof = 1;
-  ContractVarProof varProof = 2;
+  AccountProof contractProof = 1;
+  repeated ContractVarProof varProofs = 2;
 }
 
 message Receipt {
@@ -132,9 +134,8 @@ message Query {
 
 message StateQuery {
   bytes contractAddress = 1;
-  string varName = 2;
-  string varIndex = 3;
-  bytes root = 4;
-  bool compressed = 5;
+  repeated string storageKeys = 2;
+  bytes root = 3;
+  bool compressed = 4;
 }
 
