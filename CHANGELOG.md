@@ -1,5 +1,7 @@
 ## master (unreleased)
 
+## 0.11.0 (February 8, 2019)
+
 ```diff
 - blockchain.proto::StateProof (type: message)
 + blockchain.proto::AccountProof (type: message)
@@ -25,6 +27,8 @@
 + rpc.proto::AergoRPCService::GetChainInfo
 + rpc.proto::ChainId (type: message)
 + rpc.proto::ChainInfo (type: message)
+
++ p2p.proto::Peer::lashCheck (type: int64, fieldNo: 5)
 ```
 
 ## 0.10.0 (January 23, 2019)
