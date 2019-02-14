@@ -319,6 +319,7 @@ message Name {
 message NameInfo {
   Name name = 1;
   bytes owner = 2;
+  bytes destination = 3;
 }
 
 message PeersParams {
