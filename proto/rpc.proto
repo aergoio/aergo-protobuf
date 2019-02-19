@@ -129,7 +129,7 @@ service AergoRPCService {
   }
 
   // Return list of peers of this node and their state
-  rpc GetPeers(Empty) returns (PeerList) {
+  rpc GetPeers(PeersParams) returns (PeerList) {
   }
 
   // Return list of votes
@@ -203,6 +203,7 @@ message Peer {
   int32 state = 3;
   bool hidden = 4;
   int64 lashCheck = 5;
+  bool selfpeer = 6;
 }
 
 message PeerList {
@@ -318,4 +319,9 @@ message Name {
 message NameInfo {
   Name name = 1;
   bytes owner = 2;
+}
+
+message PeersParams {
+  bool noHidden = 1;
+  bool showSelf = 2;
 }
