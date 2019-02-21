@@ -1,5 +1,26 @@
 ## master (unreleased)
 
+## 0.12.0 (February 20, 2019)
+```diff
++ blockchain.proto::Event (type: message)
++ blockchain.proto::FilterInfo (type: message)
+
++ blockchain.proto::Receipt::txHash (type: bytes, fieldNo: 4)
++ blockchain.proto::Receipt::feeUsed (type: bytes, fieldNo: 5)
++ blockchain.proto::Receipt::cumulativeFeeUsed (type: bytes, fieldNo: 6)
++ blockchain.proto::Receipt::bloom (type: bytes, fieldNo: 7)
++ blockchain.proto::Receipt::events (type: repeated Events, fieldNo: 8)
++ blockchain.proto::Receipt::blockNo (type: uint64, fieldNo: 9)
++ blockchain.proto::Receipt::blockHash (type: bytes, fieldNo: 10)
++ blockchain.proto::Receipt::txIndex (type: int32, fieldNo: 11)
++ blockchain.proto::Receipt::from (type: bytes, fieldNo: 12)
++ blockchain.proto::Receipt::to (type: bytes, fieldNo: 13)
+
++ rpc.proto::AergoRPCService::ListEventStream (arg: FilterInfo, ret: Event)
++ rpc.proto::AergoRPCService::ListEvent (arg: FilterInfo, ret: EventList)
++ rpc.proto::EventList (type: message)
+```
+
 ## 0.11.0 (February 8, 2019)
 
 ```diff

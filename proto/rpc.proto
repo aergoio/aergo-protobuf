@@ -143,6 +143,14 @@ service AergoRPCService {
   // Return name information
   rpc GetNameInfo(Name) returns (NameInfo) {
   }
+
+  // Returns a stream of event as they get added to the blockchain
+  rpc ListEventStream(FilterInfo) returns (stream Event) {
+  }
+
+  // Returns list of event
+  rpc ListEvents(FilterInfo) returns (EventList) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -325,4 +333,8 @@ message NameInfo {
 message PeersParams {
   bool noHidden = 1;
   bool showSelf = 2;
+}
+
+message EventList {
+  repeated Event events = 1;
 }

@@ -104,6 +104,29 @@ message Receipt {
   bytes contractAddress = 1;
   string status = 2;
   string ret = 3;
+  bytes txHash = 4;
+  bytes feeUsed = 5;
+  bytes cumulativeFeeUsed = 6;
+  bytes bloom = 7;
+  repeated Event events = 8;
+
+  uint64 blockNo = 9;
+  bytes blockHash = 10;
+  int32 txIndex = 11;
+  bytes from = 12;
+  bytes to = 13;
+}
+
+message Event {
+  bytes contractAddress = 1;
+  string eventName = 2;
+  string jsonArgs = 3;
+  int32 eventIdx = 4;
+
+  bytes txHash = 5;
+  bytes blockHash = 6;
+  uint64 blockNo = 7;
+  int32 txIndex = 8;
 }
 
 message FnArgument {
@@ -139,3 +162,11 @@ message StateQuery {
   bool compressed = 4;
 }
 
+message FilterInfo {
+  bytes contractAddress = 1;
+  string eventName = 2;
+  uint64 blockfrom = 3;
+  uint64 blockto = 4;
+  bool desc = 5;
+  bytes argFilter = 6;
+}
