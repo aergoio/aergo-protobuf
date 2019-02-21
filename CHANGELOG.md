@@ -1,6 +1,5 @@
 ## master (unreleased)
 
-## 0.12.0 (February 20, 2019)
 ```diff
 + blockchain.proto::Event (type: message)
 + blockchain.proto::FilterInfo (type: message)
