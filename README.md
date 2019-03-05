@@ -41,7 +41,7 @@ Assing additional fields does not break backwards compatability, as protobuffer 
 A client can check if unknown fields exists or not.
 
 Example: somefile.proto
-```
+```proto
 // from
 message sometype {
   bytes hash = 1;
@@ -67,7 +67,7 @@ Please do not just remove a field, as this breaks backwards compatability.
 You can keep removed fields as "reserved". Remember that you should not reorder the field numbers.
 
 Example: somefile.proto
-```
+```proto
 // from
 message sometype {
   bytes hash = 1;
@@ -93,7 +93,7 @@ Add the following line to the changelog:
 Just a combination of remove and add.
 
 Example: somefile.proto
-```
+```proto
 // from
 message sometype {
   bytes hash = 1;
