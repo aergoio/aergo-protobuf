@@ -18,6 +18,13 @@
 + rpc.proto::AergoRPCService::ListEventStream (arg: FilterInfo, ret: Event)
 + rpc.proto::AergoRPCService::ListEvent (arg: FilterInfo, ret: EventList)
 + rpc.proto::EventList (type: message)
+
++ rpc.proto::PeersParams (type: message)
++ rpc.proto::Peer::selfpeer (type: boolean, fieldNo: 6)
+- rpc.proto::AergoRPCService::GetPeers (arg: Empty, ret: PeerList)
++ rpc.proto::AergoRPCService::GetPeers (arg: PeersParams, ret: PeerList)
+
++ rpc.proto::NameInfo::destination (type: bytes, fieldNo: 3)
 ```
 
 ## 0.11.0 (February 8, 2019)
