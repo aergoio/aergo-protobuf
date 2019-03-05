@@ -169,4 +169,5 @@ message FilterInfo {
   uint64 blockto = 4;
   bool desc = 5;
   bytes argFilter = 6;
+  int32 recentBlockCnt = 7;
 }
