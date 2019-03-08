@@ -157,6 +157,7 @@ service AergoRPCService {
 message BlockchainStatus {
   bytes best_block_hash = 1;
   uint64 best_height = 2;
+  string consensus_info = 3;
 }
 
 message ChainId {
