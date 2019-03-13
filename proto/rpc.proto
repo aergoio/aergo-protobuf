@@ -310,6 +310,7 @@ message Staking {
 message Vote {
   bytes candidate = 1;
   bytes amount = 2;
+  string title = 3;
 }
 
 message VoteList {
