@@ -132,12 +132,16 @@ service AergoRPCService {
   rpc GetPeers(PeersParams) returns (PeerList) {
   }
 
-  // Return list of votes
-  rpc GetVotes(SingleBytes) returns (VoteList) {
+  // Return result of vote
+  rpc GetVotes(VoteParams) returns (VoteList) {
+  }
+
+  // Return staking, voting info for account
+  rpc GetAccountVotes(AccountAddress) returns (AccountVoteInfo) {
   }
 
   // Return staking information
-  rpc GetStaking(SingleBytes) returns (Staking) {
+  rpc GetStaking(AccountAddress) returns (Staking) {
   }
 
   // Return name information
@@ -197,6 +201,10 @@ message Empty {
 }
 
 message SingleBytes {
+  bytes value = 1;
+}
+
+message AccountAddress {
   bytes value = 1;
 }
 
@@ -310,11 +318,26 @@ message Staking {
 message Vote {
   bytes candidate = 1;
   bytes amount = 2;
-  string title = 3;
+}
+
+message VoteParams {
+  string id = 1;
+  uint32 count = 2;
+}
+
+message AccountVoteInfo {
+  Staking staking = 1;
+  repeated VoteInfo voting = 2;
+}
+
+message VoteInfo {
+  string id = 2;
+  repeated string candidates = 3;
 }
 
 message VoteList {
   repeated Vote votes = 1;
+  string id = 2;
 }
 
 message NodeReq {
