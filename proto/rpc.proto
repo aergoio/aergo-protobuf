@@ -155,6 +155,10 @@ service AergoRPCService {
   // Returns list of event
   rpc ListEvents(FilterInfo) returns (EventList) {
   }
+
+  // Returns status of consensus and bps
+  rpc GetConsensusInfo (Empty) returns (ConsensusInfo) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -362,4 +366,11 @@ message PeersParams {
 
 message EventList {
   repeated Event events = 1;
+}
+
+// info and bps is json string
+message ConsensusInfo {
+  string type = 1;
+  string info = 2;
+  repeated string bps = 3;
 }
