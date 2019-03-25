@@ -52,7 +52,8 @@ message TxBody {
   uint64 limit = 6; // currently not used
   bytes price = 7; // variable-length big integer. currently not used
   TxType type = 8;
-  bytes sign = 9; // sender's signature for this TxBody
+  bytes chainIDHash = 9; // hash value of chain identifier in the block
+  bytes sign = 10; // sender's signature for this TxBody
 }
 
 // TxIdx specifies a transaction's block hash and index within the block body
