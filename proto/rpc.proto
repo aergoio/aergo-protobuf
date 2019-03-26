@@ -172,8 +172,7 @@ message ChainId {
   string magic = 1;
   bool public = 2;
   bool mainnet = 3;
-  bytes coinbasefee = 4;
-  string consensus = 5;
+  string consensus = 4;
 }
 
 // ChainInfo returns chain configuration
