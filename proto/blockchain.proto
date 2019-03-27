@@ -175,3 +175,12 @@ message FilterInfo {
   bytes argFilter = 6;
   int32 recentBlockCnt = 7;
 }
+
+message Proposal {
+  string id = 1;
+  string description = 3;
+  uint64 blockfrom = 4;
+  uint64 blockto = 5;
+  uint32 maxvote = 6;
+  repeated string candidates = 7;
+}
