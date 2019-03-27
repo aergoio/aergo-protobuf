@@ -358,8 +358,9 @@ message AccountVoteInfo {
 }
 
 message VoteInfo {
-  string id = 2;
-  repeated string candidates = 3;
+  string id = 1;
+  repeated string candidates = 2;
+  string amount = 3;
 }
 
 message VoteList {
