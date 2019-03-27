@@ -49,10 +49,10 @@ message TxBody {
   bytes recipient = 3; // decoded account address
   bytes amount = 4; // variable-length big integer
   bytes payload = 5;
-  uint64 limit = 6; // currently not used
-  bytes price = 7; // variable-length big integer. currently not used
+  uint64 gasLimit = 6; // currently not used
+  bytes gasPrice = 7; // variable-length big integer. currently not used
   TxType type = 8;
-  bytes chainIDHash = 9; // hash value of chain identifier in the block
+  bytes chainIdHash = 9; // hash value of chain identifier in the block
   bytes sign = 10; // sender's signature for this TxBody
 }
 

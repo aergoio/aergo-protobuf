@@ -166,6 +166,7 @@ message BlockchainStatus {
   bytes best_block_hash = 1;
   uint64 best_height = 2;
   string consensus_info = 3;
+  bytes best_chain_id_hash = 4;
 }
 
 message ChainId {
@@ -177,11 +178,14 @@ message ChainId {
 
 // ChainInfo returns chain configuration
 message ChainInfo {
-  ChainId chainid = 1;
-  uint32 bpnumber = 2;
+  ChainId id = 1;
+  uint32 bpNumber = 2;
   uint64 maxblocksize = 3;
   bytes maxtokens = 4;
   bytes stakingminimum = 5;
+  bytes totalstaking = 6;
+  bytes gasprice = 7;
+  bytes nameprice = 8;
 }
 
 message Input {
