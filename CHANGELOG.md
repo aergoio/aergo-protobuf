@@ -1,6 +1,44 @@
 ## master (unreleased)
 
 ```diff
+- blockchain.proto::TxBody::limit (type: uint64, fieldNo: 6)
+- blockchain.proto::TxBody::price (type: bytes, fieldNo: 7)
++ blockchain.proto::TxBody::gasLimit (type: uint64, fieldNo: 6)
++ blockchain.proto::TxBody::gasPrice (type: bytes, fieldNo: 7)
+
+- blockchain.proto::TxBody::sign (type: bytes, fieldNo: 9)
++ blockchain.proto::TxBody::chainIdHash (type: bytes, fieldNo: 9)
++ blockchain.proto::TxBody::sign (type: bytes, fieldNo: 10)
+
+- rpc.proto::AergoRPCService::GetVotes (arg: SingleBytes, ret: PeerList)
++ rpc.proto::AergoRPCService::GetVotes (arg: VoteParams, ret: PeerList)
+
++ rpc.proto::BlockchainStatus::consensus_info (type: string, fieldNo: 3)
++ rpc.proto::BlockchainStatus::best_chain_id_hash (type: string, fieldNo: 4)
+
+- rpc.proto::ChainId::coinbasefee (type: bytes, fieldNo: 4)
+- rpc.proto::ChainId::consensus (type: string, fieldNo: 5)
++ rpc.proto::ChainId::consensus (type: string, fieldNo: 4)
+
+- rpc.proto::ChainId::chainid (type: ChainId, fieldNo: 1)
+- rpc.proto::ChainId::bpnumber (type: uint32, fieldNo: 2)
++ rpc.proto::ChainId::id (type: ChainId, fieldNo: 1)
++ rpc.proto::ChainId::bpNumber (type: uint32, fieldNo: 2)
++ rpc.proto::ChainId::totalstaking (type: bytes, fieldNo: 6)
++ rpc.proto::ChainId::gasprice (type: bytes, fieldNo: 7)
++ rpc.proto::ChainId::nameprice (type: bytes, fieldNo: 8)
+
++ rpc.proto::ConsensusInfo
++ rpc.proto::AccountAddress
++ rpc.proto::VoteParams
++ rpc.proto::AccountVoteInfo
++ rpc.proto::VoteInfo
++ rpc.proto::VoteList::id (type: string, fieldNo: 2)
+```
+
+## 0.12.0 (March 5, 2019)
+
+```diff
 + blockchain.proto::Event (type: message)
 + blockchain.proto::FilterInfo (type: message)
 
