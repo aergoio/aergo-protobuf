@@ -137,6 +137,8 @@ message FnArgument {
 message Function {
   string name = 1;
   repeated FnArgument arguments = 2;
+  bool payable = 3;
+  bool view = 4;
 }
 
 message StateVar {
