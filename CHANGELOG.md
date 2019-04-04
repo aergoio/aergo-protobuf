@@ -9,8 +9,11 @@
 - blockchain.proto::TxBody::sign (type: bytes, fieldNo: 9)
 + blockchain.proto::TxBody::chainIdHash (type: bytes, fieldNo: 9)
 + blockchain.proto::TxBody::sign (type: bytes, fieldNo: 10)
+
 + blockchain.proto::Function::payable (type: bool, fieldNo: 3)
 + blockchain.proto::Function::view (type: bool, fieldNo: 4)
+
++ blockchain.proto::StateVar::len (type: int32, fieldNo: 3)
 
 - rpc.proto::AergoRPCService::GetVotes (arg: SingleBytes, ret: PeerList)
 + rpc.proto::AergoRPCService::GetVotes (arg: VoteParams, ret: PeerList)
