@@ -115,6 +115,8 @@ message Status {
   bytes bestBlockHash = 2;
   uint64 bestHeight = 3;
   bytes chainID = 4;
+  // noExpose means that peer doesn't want to be known to other peers.
+  bool noExpose = 5;
 }
 
 message GoAwayNotice {
