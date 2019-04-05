@@ -137,23 +137,27 @@ service AergoRPCService {
   }
 
   // Return staking, voting info for account
-  rpc GetAccountVotes(AccountAddress) returns (AccountVoteInfo) {
+  rpc GetAccountVotes (AccountAddress) returns (AccountVoteInfo) {
   }
 
   // Return staking information
-  rpc GetStaking(AccountAddress) returns (Staking) {
+  rpc GetStaking (AccountAddress) returns (Staking) {
   }
 
   // Return name information
-  rpc GetNameInfo(Name) returns (NameInfo) {
+  rpc GetNameInfo (Name) returns (NameInfo) {
   }
 
   // Returns a stream of event as they get added to the blockchain
-  rpc ListEventStream(FilterInfo) returns (stream Event) {
+  rpc ListEventStream (FilterInfo) returns (stream Event) {
   }
 
   // Returns list of event
-  rpc ListEvents(FilterInfo) returns (EventList) {
+  rpc ListEvents (FilterInfo) returns (EventList) {
+  }
+
+  // Returns configs and statuses of server
+  rpc GetServerInfo (KeyParams) returns (ServerInfo) {
   }
 
   // Returns status of consensus and bps
@@ -365,6 +369,19 @@ message NameInfo {
 message PeersParams {
   bool noHidden = 1;
   bool showSelf = 2;
+}
+
+message KeyParams {
+  repeated string key = 1;
+}
+
+message ServerInfo {
+  map<string,string> status = 1;
+  map<string,ConfigItem> config = 2;
+}
+
+message ConfigItem {
+  map<string,string> props = 2;
 }
 
 message EventList {
