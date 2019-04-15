@@ -28,6 +28,10 @@ service AergoRPCService {
   rpc GetChainInfo (Empty) returns (ChainInfo) {
   }
 
+  // Returns current chain statistics
+  rpc ChainStat (Empty) returns (ChainStats) {
+  }
+
   // Returns list of Blocks without body according to request
   rpc ListBlockHeaders(ListParams) returns (BlockHeaderList) {
   }
@@ -190,6 +194,11 @@ message ChainInfo {
   bytes totalstaking = 6;
   bytes gasprice = 7;
   bytes nameprice = 8;
+}
+
+// ChainStats corresponds to a chain statistics report.
+message ChainStats {
+    string report = 1;
 }
 
 message Input {
