@@ -117,6 +117,7 @@ message Status {
   bytes chainID = 4;
   // noExpose means that peer doesn't want to be known to other peers.
   bool noExpose = 5;
+  string version = 6;
 }
 
 message GoAwayNotice {

@@ -241,6 +241,7 @@ message Peer {
   bool hidden = 4;
   int64 lashCheck = 5;
   bool selfpeer = 6;
+  string version = 7;
 }
 
 message PeerList {
