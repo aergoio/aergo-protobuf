@@ -37,6 +37,6 @@ message PolarisPeer {
   int64 connected = 2;
   // lastCheck contains unixtimestamp with nanoseconds precision
   int64 lastCheck = 3;
-
+  string verion = 4;
 }
 
