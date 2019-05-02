@@ -167,6 +167,10 @@ service AergoRPCService {
   // Returns status of consensus and bps
   rpc GetConsensusInfo (Empty) returns (ConsensusInfo) {
   }
+
+  // Add & remove member of raft cluster
+  rpc ChangeMembership (MembershipChange) returns (MembershipChangeReply) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -403,4 +407,31 @@ message ConsensusInfo {
   string type = 1;
   string info = 2;
   repeated string bps = 3;
+}
+
+enum MembershipChangeType {
+  ADD_MEMBER = 0;
+  REMOVE_MEMBER = 1;
+}
+
+message MembershipChange {
+  MembershipChangeType type = 1;
+  
+  oneof cmd {
+    MemberAdd		add = 2;
+    MemberRemove	remove = 3;
+  }
+}
+
+message MemberAdd {
+  string name = 1;
+  string url = 2;
+  string peerID = 3;
+}
+message MemberRemove {
+  string nodeID = 1;
+}
+message MembershipChangeReply {
+  bool success = 1;
+  string error = 2;
 }
