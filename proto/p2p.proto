@@ -6,15 +6,16 @@ option go_package = "github.com/aergoio/aergo/types";
 import "blockchain.proto";
 import "node.proto";
 
-// MessageData has datas shared between all app protocols
+// MsgHeader contains common properties of all p2p messages
 message MsgHeader {
-  // client version
+  // Deprecated client version.
   string clientVersion = 1;
   // unix time
   int64 timestamp = 2;
   // allows requesters to use request data when processing a response
   string id = 3;
   // Gossip is flag to have receiver peer gossip the message to neighbors
+  // Deprecated whether to gossip other peers is determined by subprotocol since version 0.3.0 .
   bool gossip = 4;
   // PeerID is id of node that created the message (not the peer that may have sent it). =base58(mh(sha256(nodePubKey)))
   bytes peerID = 5;
@@ -22,9 +23,9 @@ message MsgHeader {
   bytes nodePubKey = 6;
   // signature of message data + method specific data by message authoring node. format: string([]bytes)
   bytes sign = 7;
-  //
+  // sub category of message. the receiving peer determines how to deserialize payload data and whether to spread messages to other peers
   uint32 subprotocol = 8;
-  //
+  // size of bytes of the payload
   uint32 length = 9;
 }
 
@@ -91,6 +92,7 @@ enum ResultStatus {
   UNAUTHENTICATED = 16;
 }
 
+// Deprecated P2PMessage is data structure for aergo v0.2 or earlier. This structure is not used anymore since v0.3.0.
 message P2PMessage {
   MsgHeader header = 1;
   bytes data = 2;
@@ -103,13 +105,12 @@ message Ping {
 }
 
 // Ping response message
-// TODO unify to Ping? If did, how to distinguish message is request or response?
 message Pong {
   bytes bestBlockHash = 1;
   uint64 bestHeight = 2;
 }
 
-// Ping request message
+// Status is peer status exchanged during handshaking.
 message Status {
   PeerAddress sender = 1;
   bytes bestBlockHash = 2;
@@ -117,12 +118,15 @@ message Status {
   bytes chainID = 4;
   // noExpose means that peer doesn't want to be known to other peers.
   bool noExpose = 5;
+  // version of server binary
   string version = 6;
 }
 
+// GoAwayNotice is sent before host peer is closing connection to remote peer. it contains why the host closing connection.
 message GoAwayNotice {
   string message = 1;
-} 
+}
+
 message AddressesRequest {
   PeerAddress sender = 1;
   uint32 maxSize = 2;
@@ -133,11 +137,16 @@ message AddressesResponse {
   repeated PeerAddress peers = 2;
 }
 
+// NewBlockNotice is sent to other peers when host node add a block, which is not produced by this host peer (i.e. added block
+// that other bp node produced.) It contains just hash and blockNo. The host node will not send notice if target receiving peer
+// knows that block already at best effort.
 message NewBlockNotice {
   bytes blockHash = 1;
   uint64 blockNo = 2;
 }
 
+// BlockProducedNotice is sent when BP created blocks and host peer is BP (or surrogate of BP) and receiving peer is also trusted BP or surrogate of BP.
+// It contains whole block information
 message BlockProducedNotice {
   bytes producerID = 1;
   uint64 blockNo = 2;
@@ -233,13 +242,3 @@ message GetHashesResponse {
     repeated bytes hashes = 2;
     bool hasNext = 3;
 }
-
-
-// GetBlockResponse contains response of GetBlockRequest.
-//message GetMissingResponse {
- //   MessageData messageData = 1;
-  //  ResultStatus status = 2;
-  //  repeated bytes hashes = 3;    
-   // repeated BlockHeader headers = 4;    
-//}
-
