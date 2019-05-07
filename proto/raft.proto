@@ -12,10 +12,10 @@ enum MembershipChangeType {
 }
 
 message MemberAttr {
-  uint64 nodeID = 2;
-  string name = 3;
-  string url = 4;
-  string peerID = 5;
+  uint64 ID = 1;
+  string name = 2;
+  string url = 3;
+  bytes  peerID = 4;
 }
 
 message MembershipChange {
@@ -34,6 +34,6 @@ message GetClusterInfoRequest {
 }
 
 message GetClusterInfoResponse {
-  ResultStatus status = 1;
-  // TODO add more props
+  string error = 1;
+  repeated MemberAttr mbrAttrs = 2;
 }
