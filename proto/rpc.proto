@@ -8,6 +8,7 @@ import "account.proto";
 import "node.proto";
 import "p2p.proto";
 import "metric.proto";
+import "raft.proto";
 
 /**
  * AergoRPCService is the main RPC service providing endpoints to interact 
@@ -407,31 +408,4 @@ message ConsensusInfo {
   string type = 1;
   string info = 2;
   repeated string bps = 3;
-}
-
-enum MembershipChangeType {
-  ADD_MEMBER = 0;
-  REMOVE_MEMBER = 1;
-}
-
-message MembershipChange {
-  MembershipChangeType type = 1;
-  
-  oneof cmd {
-    MemberAdd		add = 2;
-    MemberRemove	remove = 3;
-  }
-}
-
-message MemberAdd {
-  string name = 1;
-  string url = 2;
-  string peerID = 3;
-}
-message MemberRemove {
-  string nodeID = 1;
-}
-message MembershipChangeReply {
-  bool success = 1;
-  string error = 2;
 }
