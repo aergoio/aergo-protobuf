@@ -34,6 +34,7 @@ message GetClusterInfoRequest {
 }
 
 message GetClusterInfoResponse {
-  string error = 1;
-  repeated MemberAttr mbrAttrs = 2;
+  bytes chainID = 1;
+  string error = 2;
+  repeated MemberAttr mbrAttrs = 3;
 }
