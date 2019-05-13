@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package types;
+option go_package = "github.com/aergoio/aergo/types";
+
+import "p2p.proto";
+
+// cluster member for raft consensus 
+enum MembershipChangeType {
+  ADD_MEMBER = 0;
+  REMOVE_MEMBER = 1;
+}
+
+message MemberAttr {
+  uint64 ID = 1;
+  string name = 2;
+  string url = 3;
+  bytes  peerID = 4;
+}
+
+message MembershipChange {
+  MembershipChangeType type = 1;
+  
+  MemberAttr attr = 2;
+}
+
+message MembershipChangeReply {
+  MemberAttr attr = 1;
+}
+
+// data types for raft support
+// GetClusterInfoRequest
+message GetClusterInfoRequest {
+}
+
+message GetClusterInfoResponse {
+  bytes chainID = 1;
+  string error = 2;
+  repeated MemberAttr mbrAttrs = 3;
+}

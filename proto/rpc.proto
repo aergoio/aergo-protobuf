@@ -8,6 +8,7 @@ import "account.proto";
 import "node.proto";
 import "p2p.proto";
 import "metric.proto";
+import "raft.proto";
 
 /**
  * AergoRPCService is the main RPC service providing endpoints to interact 
@@ -166,6 +167,10 @@ service AergoRPCService {
 
   // Returns status of consensus and bps
   rpc GetConsensusInfo (Empty) returns (ConsensusInfo) {
+  }
+
+  // Add & remove member of raft cluster
+  rpc ChangeMembership (MembershipChange) returns (MembershipChangeReply) {
   }
 }
 
