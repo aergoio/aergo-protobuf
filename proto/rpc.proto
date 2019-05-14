@@ -286,6 +286,7 @@ message BlockMetadata {
   bytes hash = 1;
   BlockHeader header = 2;
   int32 txcount = 3;
+  int64 size = 4; // blocksize in bytes
 }
 
 message BlockMetadataList {
