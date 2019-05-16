@@ -374,6 +374,7 @@ message NodeReq {
 
 message Name {
   string name = 1;
+  uint64 blockNo = 2;
 }
 
 message NameInfo {
