@@ -1,6 +1,12 @@
 ## master (unreleased)
 
 ```diff
++ blockchaon.proto::Block::size (type: int64, fieldNo: 4)
+```
+
+## 1.0.0 (April 1, 2019)
+
+```diff
 - blockchain.proto::TxBody::limit (type: uint64, fieldNo: 6)
 - blockchain.proto::TxBody::price (type: bytes, fieldNo: 7)
 + blockchain.proto::TxBody::gasLimit (type: uint64, fieldNo: 6)
