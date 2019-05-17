@@ -172,6 +172,10 @@ service AergoRPCService {
   // Add & remove member of raft cluster
   rpc ChangeMembership (MembershipChange) returns (MembershipChangeReply) {
   }
+
+  // Returns enterprise config
+  rpc GetEnterpriseConfig (EnterpriseConfigKey) returns (EnterpriseConfig) {
+  }
 }
 
 // BlockchainStatus is current status of blockchain
@@ -410,4 +414,14 @@ message ConsensusInfo {
   string type = 1;
   string info = 2;
   repeated string bps = 3;
+}
+
+message EnterpriseConfigKey {
+  string key = 1;
+}
+
+message EnterpriseConfig {
+  string key = 1;
+  bool on = 2;
+  repeated string values = 3;
 }
