@@ -28,13 +28,20 @@ message MembershipChangeReply {
   MemberAttr attr = 1;
 }
 
+message HardStateInfo {
+  uint64 term = 1;
+  uint64 commit = 2;
+}
+
 // data types for raft support
 // GetClusterInfoRequest
 message GetClusterInfoRequest {
+  bytes bestBlockHash = 1;
 }
 
 message GetClusterInfoResponse {
   bytes chainID = 1;
   string error = 2;
   repeated MemberAttr mbrAttrs = 3;
+  HardStateInfo hardStateInfo = 4;
 }
