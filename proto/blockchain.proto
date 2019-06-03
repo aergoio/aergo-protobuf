@@ -88,12 +88,13 @@ message AccountProof {
 message ContractVarProof{
   bytes value = 1;
   bool inclusion = 2;
-  string key = 3;
+  reserved 3;
   bytes proofKey = 4;
   bytes proofVal = 5;
   bytes bitmap = 6;
   uint32 height = 7;
   repeated bytes auditPath = 8;
+  bytes key = 9;
 }
 
 message StateQueryProof {
@@ -161,9 +162,10 @@ message Query {
 
 message StateQuery {
   bytes contractAddress = 1;
-  repeated string storageKeys = 2;
+  reserved 2;
   bytes root = 3;
   bool compressed = 4;
+  repeated bytes storageKeys = 5;
 }
 
 message FilterInfo {
