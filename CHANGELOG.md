@@ -1,7 +1,20 @@
-## master (unreleased)
+## 1.1.0 (June 4, 2019)
 
 ```diff
-+ blockchaon.proto::Block::size (type: int64, fieldNo: 4)
++ blockchain.proto::Block::size (type: int64, fieldNo: 4)
+
++ p2p.proto::Status::version (type: string, fieldNo: 6)
+
++ polarrpc.proto::PolarisPeer::version (type: string, fieldNo: 4)
+
++ raft.proto
+
++ rpc.proto::AergoRPCService::ChainStat
++ rpc.proto::AergoRPCService::ChangeMembership
++ rpc.proto::ChainStats
++ rpc.proto::Peer::version (type: string, fieldNo: 7)
++ rpc.proto::BlockMetadata::size (type: int64, fieldNo: 4)
++ rpc.proto::Name::blockNo (type: uint64, fieldNo: 2)
 ```
 
 ## 1.0.0 (April 1, 2019)
