@@ -41,7 +41,8 @@ message GetClusterInfoRequest {
 
 message GetClusterInfoResponse {
   bytes chainID = 1;
-  string error = 2;
-  repeated MemberAttr mbrAttrs = 3;
-  HardStateInfo hardStateInfo = 4;
+  uint64 clusterID = 2;
+  string error = 3;
+  repeated MemberAttr mbrAttrs = 4;
+  HardStateInfo hardStateInfo = 5;
 }
