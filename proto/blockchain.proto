@@ -36,6 +36,7 @@ message TxList {
 enum TxType {
   NORMAL = 0;
   GOVERNANCE = 1;
+  REDEPLOY = 2;
 }
 
 message Tx {
