@@ -17,6 +17,12 @@
 + rpc.proto::Name::blockNo (type: uint64, fieldNo: 2)
 ```
 
+## 
+- blockchain.proto:ContractVarProof::key(type: string fieldNo: 3)
++ blockchain.proto:ContractVarProof::key(type: bytes fieldNo: 9)
+- blockchain.proto:StateQuery::storageKeys(type: repeated string fieldNo: 2)
++ blockchain.proto:ContractVarProof::storageKeys(type: repeated bytes fieldNo: 5)
+
 ## 1.0.0 (April 1, 2019)
 
 ```diff
