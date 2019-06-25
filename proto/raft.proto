@@ -20,8 +20,8 @@ message MemberAttr {
 
 message MembershipChange {
   MembershipChangeType type = 1;
-  
-  MemberAttr attr = 2;
+  uint64 requestID = 2;
+  MemberAttr attr = 3;
 }
 
 message MembershipChangeReply {
