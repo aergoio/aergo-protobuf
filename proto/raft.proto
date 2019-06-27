@@ -46,3 +46,14 @@ message GetClusterInfoResponse {
   repeated MemberAttr mbrAttrs = 4;
   HardStateInfo hardStateInfo = 5;
 }
+
+enum ConfChangeState {
+	CONF_CHANGE_STATE_PROPOSED = 0;
+	CONF_CHANGE_STATE_SAVED = 1;
+	CONF_CHANGE_STATE_APPLIED = 2;
+}
+
+message ConfChangeProgress {
+	ConfChangeState State = 1;
+	string Err = 2;   
+}

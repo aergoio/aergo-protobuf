@@ -176,6 +176,10 @@ service AergoRPCService {
   // Returns enterprise config
   rpc GetEnterpriseConfig (EnterpriseConfigKey) returns (EnterpriseConfig) {
   }
+
+  // Return a status of changeCluster enterprise tx,  queried by requestID
+  rpc GetConfChangeProgress(SingleBytes) returns (ConfChangeProgress) {   
+  }
 }
 
 // BlockchainStatus is current status of blockchain
