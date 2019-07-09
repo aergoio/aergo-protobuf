@@ -14,7 +14,7 @@ enum MembershipChangeType {
 message MemberAttr {
   uint64 ID = 1;
   string name = 2;
-  string url = 3;
+  string address = 3;
   bytes  peerID = 4;
 }
 
