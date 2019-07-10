@@ -14,14 +14,14 @@ enum MembershipChangeType {
 message MemberAttr {
   uint64 ID = 1;
   string name = 2;
-  string url = 3;
+  string address = 3;
   bytes  peerID = 4;
 }
 
 message MembershipChange {
   MembershipChangeType type = 1;
-  
-  MemberAttr attr = 2;
+  uint64 requestID = 2;
+  MemberAttr attr = 3;
 }
 
 message MembershipChangeReply {
@@ -45,4 +45,15 @@ message GetClusterInfoResponse {
   string error = 3;
   repeated MemberAttr mbrAttrs = 4;
   HardStateInfo hardStateInfo = 5;
+}
+
+enum ConfChangeState {
+	CONF_CHANGE_STATE_PROPOSED = 0;
+	CONF_CHANGE_STATE_SAVED = 1;
+	CONF_CHANGE_STATE_APPLIED = 2;
+}
+
+message ConfChangeProgress {
+	ConfChangeState State = 1;
+	string Err = 2;   
 }

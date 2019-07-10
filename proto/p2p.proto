@@ -120,6 +120,8 @@ message Status {
   bool noExpose = 5;
   // version of server binary
   string version = 6;
+  // hash of genesis block
+  bytes genesis = 7;
 }
 
 // GoAwayNotice is sent before host peer is closing connection to remote peer. it contains why the host closing connection.
