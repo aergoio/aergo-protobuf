@@ -57,3 +57,10 @@ message ConfChangeProgress {
 	ConfChangeState State = 1;
 	string Err = 2;   
 }
+
+
+// SnapshotResponse is response message of receiving peer
+message SnapshotResponse {
+    ResultStatus status = 1;
+    string message = 2;
+}
