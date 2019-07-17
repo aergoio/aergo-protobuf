@@ -44,7 +44,8 @@ message GetClusterInfoResponse {
   uint64 clusterID = 2;
   string error = 3;
   repeated MemberAttr mbrAttrs = 4;
-  HardStateInfo hardStateInfo = 5;
+  uint64 bestBlockNo = 5;             // best block number of this node
+  HardStateInfo hardStateInfo = 6;    // hardstate corresponding to bestblockhash of requester
 }
 
 enum ConfChangeState {
