@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package types;
-option go_package = "github.com/aergoio/aergo/types";
+//option go_package = "github.com/aergoio/aergo/types";
 
 import "p2p.proto";
 
@@ -44,7 +44,8 @@ message GetClusterInfoResponse {
   uint64 clusterID = 2;
   string error = 3;
   repeated MemberAttr mbrAttrs = 4;
-  HardStateInfo hardStateInfo = 5;
+  uint64 bestBlockNo = 5;             // best block number of this node
+  HardStateInfo hardStateInfo = 6;    // hardstate corresponding to bestblockhash of requester
 }
 
 enum ConfChangeState {
@@ -56,4 +57,12 @@ enum ConfChangeState {
 message ConfChangeProgress {
 	ConfChangeState State = 1;
 	string Err = 2;   
+	repeated MemberAttr Members = 3;
+}
+
+
+// SnapshotResponse is response message of receiving peer
+message SnapshotResponse {
+    ResultStatus status = 1;
+    string message = 2;
 }
