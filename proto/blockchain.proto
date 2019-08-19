@@ -37,6 +37,7 @@ enum TxType {
   NORMAL = 0;
   GOVERNANCE = 1;
   REDEPLOY = 2;
+  FEEDELEGATION = 3;
 }
 
 message Tx {
@@ -118,6 +119,7 @@ message Receipt {
   int32 txIndex = 11;
   bytes from = 12;
   bytes to = 13;
+  bool  feeDelegation = 14;
 }
 
 message Event {
@@ -141,6 +143,7 @@ message Function {
   repeated FnArgument arguments = 2;
   bool payable = 3;
   bool view = 4;
+  bool fee_delegation = 5;
 }
 
 message StateVar {

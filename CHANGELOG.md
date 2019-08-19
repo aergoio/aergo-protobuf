@@ -1,3 +1,14 @@
+## master (unreleased)
+
+```diff
+- blockchain.proto:ContractVarProof::key(type: string fieldNo: 3)
++ blockchain.proto:ContractVarProof::key(type: bytes fieldNo: 9)
+- blockchain.proto:StateQuery::storageKeys(type: repeated string fieldNo: 2)
++ blockchain.proto:ContractVarProof::storageKeys(type: repeated bytes fieldNo: 5)
++ blockchain.proto:Receipt::feeDelegation(type: bool, fieldNo: 14)
++ blockchain.proto::Function::fee_delegation(type: bool, fieldNo: 5)
+```
+
 ## 1.1.0 (June 4, 2019)
 
 ```diff
@@ -16,12 +27,6 @@
 + rpc.proto::BlockMetadata::size (type: int64, fieldNo: 4)
 + rpc.proto::Name::blockNo (type: uint64, fieldNo: 2)
 ```
-
-## 
-- blockchain.proto:ContractVarProof::key(type: string fieldNo: 3)
-+ blockchain.proto:ContractVarProof::key(type: bytes fieldNo: 9)
-- blockchain.proto:StateQuery::storageKeys(type: repeated string fieldNo: 2)
-+ blockchain.proto:ContractVarProof::storageKeys(type: repeated bytes fieldNo: 5)
 
 ## 1.0.0 (April 1, 2019)
 
