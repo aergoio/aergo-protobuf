@@ -21,8 +21,9 @@ message BlockHeader {
   bytes pubKey = 9; // block producer's public key
   bytes coinbaseAccount = 10; // address of account to receive fees
   bytes sign = 11; // block producer's signature of BlockHeader
-  // CAUTION: THE SIGN MUST BE THE LAST FIELD.
-  // DO NOT ADD A NEW FIELD AFTER THE SIGN FIELD.
+  bytes consensus = 12; // consensus meta
+  // CAUTION: WHENEVER A NEW FIELD ADDED HERE, types.lastFieldOfBH MUST BE
+  // REPLACE BY IT.
 }
 
 message BlockBody {
