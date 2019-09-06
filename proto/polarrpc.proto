@@ -9,16 +9,30 @@ import "metric.proto";
 
 service PolarisRPCService {
     // Returns the current state of this node
-    rpc NodeState (NodeReq) returns (SingleBytes) {}
+    rpc NodeState (NodeReq) returns (SingleBytes) {
+    }
 
     // Returns node metrics according to request
-    rpc Metric (MetricsRequest) returns (Metrics) {}
+    rpc Metric (MetricsRequest) returns (Metrics) {
+    }
 
-    rpc CurrentList (Paginations) returns (PolarisPeerList) {}
+    rpc CurrentList (Paginations) returns (PolarisPeerList) {
+    }
 
-    rpc WhiteList (Paginations) returns (PolarisPeerList) {}
+    rpc WhiteList (Paginations) returns (PolarisPeerList) {
+    }
 
-    rpc BlackList (Paginations) returns (PolarisPeerList) {}
+    rpc BlackList (Paginations) returns (PolarisPeerList) {
+    }
+
+    rpc ListBLEntries (Empty) returns (BLConfEntries) {
+    }
+
+    rpc AddBLEntry (AddEntryParams) returns (SingleString) {
+    }
+
+    rpc RemoveBLEntry (RmEntryParams) returns (SingleString) {
+    }
 }
 
 message Paginations {
@@ -33,10 +47,24 @@ message PolarisPeerList {
 }
 
 message PolarisPeer {
-  PeerAddress address = 1;
-  int64 connected = 2;
-  // lastCheck contains unixtimestamp with nanoseconds precision
-  int64 lastCheck = 3;
-  string verion = 4;
+    PeerAddress address = 1;
+    int64 connected = 2;
+    // lastCheck contains unix timestamp with nanoseconds precision
+    int64 lastCheck = 3;
+    string verion = 4;
 }
 
+message BLConfEntries {
+    bool enabled = 1;
+    repeated string entries = 2;
+}
+
+message AddEntryParams {
+    string peerID = 1;
+    string address = 2;
+    string cidr = 3;
+}
+
+message RmEntryParams {
+    uint32 index = 1;
+}

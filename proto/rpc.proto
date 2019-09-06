@@ -238,6 +238,10 @@ message SingleBytes {
   bytes value = 1;
 }
 
+message SingleString {
+  string value = 1;
+}
+
 message AccountAddress {
   bytes value = 1;
 }
