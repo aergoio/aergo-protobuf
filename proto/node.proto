@@ -3,9 +3,25 @@ syntax = "proto3";
 package types;
 //option go_package = "github.com/aergoio/aergo/types";
 
-message PeerAddress {
-  // address is string representation of ip address or domain name.
-  string address = 1;
-  uint32 port = 2;
-  bytes peerID = 3;
+enum PeerRole {
+  LegacyVersion = 0;
+  Producer = 1;
+  Watcher = 2;
+  Agent = 3;
 }
+
+// PeerAddress contains static information of peer and addresses to connect peer
+message PeerAddress {
+    // @Deprecated advertised address and port will be in addresses field in aergo v2.
+    // address is string representation of ip address or domain name.
+    string address = 1;
+    // @Deprecated
+    uint32 port = 2;
+    bytes peerID = 3;
+
+    uint32 role = 4;
+    string version = 5;
+    repeated string addresses = 6;
+    repeated bytes producerIDs = 7;
+}
+
