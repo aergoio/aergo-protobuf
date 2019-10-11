@@ -32,7 +32,7 @@ message sometype {
 }
 ```
 
-Follow these rules for backwards compatibility. Remember that you should add any changes to the [CHANGELOG](./CHANGELOG.md).
+Follow these rules for backwards compatibility.
 
 ### Add
 
@@ -41,6 +41,7 @@ Assing additional fields does not break backwards compatability, as protobuffer 
 A client can check if unknown fields exists or not.
 
 Example: somefile.proto
+
 ```proto
 // from
 message sometype {
@@ -56,17 +57,13 @@ message sometype {
 }
 ```
 
-Please add the following line to the changelog:
-```diff
-+ somefile.proto::sometype::payload (type: bytes, fieldNo: 3)
-```
-
 ### Remove
 
 Please do not just remove a field, as this breaks backwards compatability.
 You can keep removed fields as "reserved". Remember that you should not reorder the field numbers.
 
 Example: somefile.proto
+
 ```proto
 // from
 message sometype {
@@ -83,16 +80,12 @@ message sometype {
 }
 ```
 
-Add the following line to the changelog:
-```diff
-- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
-```
-
 ### Update (Remove + Add)
 
 Just a combination of remove and add.
 
 Example: somefile.proto
+
 ```proto
 // from
 message sometype {
@@ -108,13 +101,13 @@ message sometype {
 }
 ```
 
-Add the following lines to the changelog:
-```diff
-- somefile.proto::sometype::hash (type: bytes, fieldNo: 1)
-+ somefile.proto::sometype::hash (type: string, fieldNo: 3)
+## Dump Diff
+
+```sh
+> ./make_diff.sh v1.x.x. v1.x.x
 ```
 
-### See also
+## See also
 
 * [Reserved fields in proto3](https://developers.google.com/protocol-buffers/docs/proto3#reserved)
 * [Updating message type in proto3](https://developers.google.com/protocol-buffers/docs/proto3#updating)
