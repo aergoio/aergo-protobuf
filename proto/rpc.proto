@@ -196,6 +196,7 @@ message ChainId {
   bool public = 2;
   bool mainnet = 3;
   string consensus = 4;
+  int32 version = 5;
 }
 
 // ChainInfo returns chain configuration
