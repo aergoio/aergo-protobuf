@@ -19,9 +19,21 @@ message PeerAddress {
     uint32 port = 2;
     bytes peerID = 3;
 
-    uint32 role = 4;
+    PeerRole role = 4;
     string version = 5;
     repeated string addresses = 6;
     repeated bytes producerIDs = 7;
 }
 
+message AgentCertificate {
+    uint32 certVersion = 1;
+    bytes BPID = 2;
+    bytes BPPubKey = 3;
+    // CreateTime is the number of nanoseconds elapsed since January 1, 1970 UTC
+    int64 createTime = 4;
+    // CreateTime is the number of nanoseconds elapsed since January 1, 1970 UTC
+    int64 expireTime = 5;
+    bytes agentID = 6;
+    repeated bytes AgentAddress = 7;
+    bytes signature = 8;
+}

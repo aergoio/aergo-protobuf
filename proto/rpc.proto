@@ -261,6 +261,8 @@ message Peer {
   int64 lashCheck = 5;
   bool selfpeer = 6;
   string version = 7;
+  repeated AgentCertificate certificates = 8;
+  PeerRole acceptedRole = 9;
 }
 
 message PeerList {
