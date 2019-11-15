@@ -9,6 +9,8 @@
 + blockchain.proto::Function::fee_delegation(type: bool, fieldNo: 5)
 ```
 
+# Changelog
+
 ## 1.1.0 (June 4, 2019)
 
 ```diff
@@ -26,6 +28,11 @@
 + rpc.proto::Peer::version (type: string, fieldNo: 7)
 + rpc.proto::BlockMetadata::size (type: int64, fieldNo: 4)
 + rpc.proto::Name::blockNo (type: uint64, fieldNo: 2)
+
+- blockchain.proto:ContractVarProof::key(type: string, fieldNo: 3)
++ blockchain.proto:ContractVarProof::key(type: bytes, fieldNo: 9)
+- blockchain.proto:StateQuery::storageKeys(type: repeated, string fieldNo: 2)
++ blockchain.proto:ContractVarProof::storageKeys(type: repeated, bytes fieldNo: 5)
 ```
 
 ## 1.0.0 (April 1, 2019)
@@ -132,6 +139,7 @@
 ```
 
 ## 0.10.0 (January 23, 2019)
+
 ```diff
 + polarrpc.proto
 
@@ -142,12 +150,14 @@
 ```
 
 ## 0.9.5 (December 27, 2018)
+
 ```diff
 + p2p.proto::Status::chainId (type: bytes, fieldNo: 4)
 + mpap.proto::MapResponse::message (type: string, fieldNo: 3)
 ```
 
 ## 0.9.4 (December 21, 2018)
+
 ```diff
 + p2p.proto::BlockProducedNotice (type: message)
 + pmap.proto
