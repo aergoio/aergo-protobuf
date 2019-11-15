@@ -21,8 +21,9 @@ message BlockHeader {
   bytes pubKey = 9; // block producer's public key
   bytes coinbaseAccount = 10; // address of account to receive fees
   bytes sign = 11; // block producer's signature of BlockHeader
-  // CAUTION: THE SIGN MUST BE THE LAST FIELD.
-  // DO NOT ADD A NEW FIELD AFTER THE SIGN FIELD.
+  bytes consensus = 12; // consensus meta
+  // CAUTION: WHENEVER A NEW FIELD ADDED HERE, types.lastFieldOfBH MUST BE
+  // REPLACE BY IT.
 }
 
 message BlockBody {
@@ -37,6 +38,10 @@ enum TxType {
   NORMAL = 0;
   GOVERNANCE = 1;
   REDEPLOY = 2;
+  FEEDELEGATION = 3;
+  TRANSFER = 4;
+  CALL = 5;
+  DEPLOY = 6;
 }
 
 message Tx {
@@ -112,12 +117,13 @@ message Receipt {
   bytes cumulativeFeeUsed = 6;
   bytes bloom = 7;
   repeated Event events = 8;
-
   uint64 blockNo = 9;
   bytes blockHash = 10;
   int32 txIndex = 11;
   bytes from = 12;
   bytes to = 13;
+  bool  feeDelegation = 14;
+  uint64 gasUsed = 15;
 }
 
 message Event {
@@ -141,6 +147,7 @@ message Function {
   repeated FnArgument arguments = 2;
   bool payable = 3;
   bool view = 4;
+  bool fee_delegation = 5;
 }
 
 message StateVar {
@@ -177,4 +184,10 @@ message FilterInfo {
   bool desc = 5;
   bytes argFilter = 6;
   int32 recentBlockCnt = 7;
+}
+
+message Proposal {
+  string id = 1;
+  string description = 3;
+  uint32 multipleChoice = 6;
 }

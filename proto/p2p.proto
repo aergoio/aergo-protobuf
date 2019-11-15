@@ -118,7 +118,8 @@ message Status {
   bytes chainID = 4;
   // noExpose means that peer doesn't want to be known to other peers.
   bool noExpose = 5;
-  // version of server binary
+  // @Deprecated version is used in PeerAddress since aergo v2.
+  // version of server binary.
   string version = 6;
   // hash of genesis block
   bytes genesis = 7;

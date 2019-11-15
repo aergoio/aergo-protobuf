@@ -196,6 +196,7 @@ message ChainId {
   bool public = 2;
   bool mainnet = 3;
   string consensus = 4;
+  int32 version = 5;
 }
 
 // ChainInfo returns chain configuration
@@ -371,8 +372,9 @@ message AccountVoteInfo {
 }
 
 message VoteInfo {
-  string id = 2;
-  repeated string candidates = 3;
+  string id = 1;
+  repeated string candidates = 2;
+  string amount = 3;
 }
 
 message VoteList {
