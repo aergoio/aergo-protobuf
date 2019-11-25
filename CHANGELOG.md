@@ -1,15 +1,28 @@
-## master (unreleased)
+# Changelog
+
+## 2.0.0 (November 25, 2019)
 
 ```diff
-- blockchain.proto:ContractVarProof::key(type: string fieldNo: 3)
-+ blockchain.proto:ContractVarProof::key(type: bytes fieldNo: 9)
-- blockchain.proto:StateQuery::storageKeys(type: repeated string fieldNo: 2)
-+ blockchain.proto:ContractVarProof::storageKeys(type: repeated bytes fieldNo: 5)
-+ blockchain.proto:Receipt::feeDelegation(type: bool, fieldNo: 14)
++ blockchain.proto::Receipt::feeDelegation(type: bool, fieldNo: 14)
 + blockchain.proto::Function::fee_delegation(type: bool, fieldNo: 5)
-```
++ blockchain.proto::BlockHeader::consensus (type: bytes, fieldNo: 12)
++ blockchain.proto::Receipt::feeDelegation (type: bool, fieldNo: 14)
++ blockchain.proto::Receipt::gasUsed (type: uint64, fieldNo: 15)
++ blockchain.proto::Event::fee_delegation (type: bool, fieldNo: 5)
 
-# Changelog
++ blockchain.proto::Proposal
+
++ node.proto::PeerAddress::role (type: PeerRole, fieldNo: 4)
++ node.proto::PeerAddress::version (type: string, fieldNo: 5)
++ node.proto::PeerAddress::addresses (type: repeated string, fieldNo: 6)
++ node.proto::PeerAddress::producerIDs (type: repeated bytes, fieldNo: 7)
++ node.proto::PeerAddress::AgentCertificate
+
++ rpc.proto::ChainId::version (type: int32, fieldNo: 5)
+
++ rpc.proto::Peer::certificates (type: repeated AgentCertificate, fieldNo: 8)
++ rpc.proto::Peer::acceptedRole (type: PeerRole, fieldNo: 9)
+```
 
 ## 1.1.0 (June 4, 2019)
 
@@ -29,10 +42,10 @@
 + rpc.proto::BlockMetadata::size (type: int64, fieldNo: 4)
 + rpc.proto::Name::blockNo (type: uint64, fieldNo: 2)
 
-- blockchain.proto:ContractVarProof::key(type: string, fieldNo: 3)
-+ blockchain.proto:ContractVarProof::key(type: bytes, fieldNo: 9)
-- blockchain.proto:StateQuery::storageKeys(type: repeated, string fieldNo: 2)
-+ blockchain.proto:ContractVarProof::storageKeys(type: repeated, bytes fieldNo: 5)
+- blockchain.proto::ContractVarProof::key(type: string, fieldNo: 3)
++ blockchain.proto::ContractVarProof::key(type: bytes, fieldNo: 9)
+- blockchain.proto::StateQuery::storageKeys(type: repeated, string fieldNo: 2)
++ blockchain.proto::ContractVarProof::storageKeys(type: repeated, bytes fieldNo: 5)
 ```
 
 ## 1.0.0 (April 1, 2019)
