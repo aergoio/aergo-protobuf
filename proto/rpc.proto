@@ -209,6 +209,8 @@ message ChainInfo {
   bytes totalstaking = 6;
   bytes gasprice = 7;
   bytes nameprice = 8;
+  bytes totalvotingpower = 9;
+  bytes votingreward= 10;
 }
 
 // ChainStats corresponds to a chain statistics report.
