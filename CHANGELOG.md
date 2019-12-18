@@ -36,9 +36,12 @@
 + rpc.proto::VoteInfo::amount (type: string, fieldNo: 3)
 ```
 
-## 1.3.0 (June 4, 2019)
+## 1.3.0 (September 6, 2019)
 
 ```diff
++ polarrpc.proto::PolarisRPCService::ListBLEntries (arg: Empty, ret: BLConfEntries)
++ polarrpc.proto::PolarisRPCService::AddBLEntry (arg: AddEntryParams, ret: SingleString)
++ polarrpc.proto::PolarisRPCService::RemoveBLEntry (arg: RmEntryParams, ret: SingleString)
 + polarrpc.proto::BLConfEntries
 + polarrpc.proto::AddEntryParams
 + polarrpc.proto::RmEntryParams
@@ -46,7 +49,8 @@
 + rpc.proto::SingleString
 ```
 
-## 1.2.0 (June 4, 2019)
+## 1.2.0 (July 17, 2019)
+
 ```diff
 + blockchain.proto::TxType::REDEPLOY (2)
 - blockchain.proto::TxType::key (type: string, fieldNo: 3)
