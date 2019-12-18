@@ -39,19 +39,6 @@
 ## 1.3.0 (June 4, 2019)
 
 ```diff
-- polarrpc.proto::PolarisRPCService::NodeState (arg: NodeReq, ret: SingleBytes)
-+ polarrpc.proto::PolarisRPCService::NodeState (arg: NodeReq, ret: SingleBytes)
-- polarrpc.proto::PolarisRPCService::Metric (arg: MetricsRequest, ret: Metrics)
-+ polarrpc.proto::PolarisRPCService::Metric (arg: MetricsRequest, ret: Metrics)
-+ polarrpc.proto::PolarisRPCService::CurrentList (arg: Paginations, ret: PolarisPeerList)
-+ polarrpc.proto::PolarisRPCService::WhiteList (arg: Paginations, ret: PolarisPeerList)
-+ polarrpc.proto::PolarisRPCService::BlackList (arg: Paginations, ret: PolarisPeerList)
-- polarrpc.proto::PolarisRPCService::CurrentList (arg: Paginations, ret: PolarisPeerList)
-+ polarrpc.proto::PolarisRPCService::ListBLEntries (arg: Empty, ret: BLConfEntries)
-- polarrpc.proto::PolarisRPCService::WhiteList (arg: Paginations, ret: PolarisPeerList)
-+ polarrpc.proto::PolarisRPCService::AddBLEntry (arg: AddEntryParams, ret: SingleString)
-- polarrpc.proto::PolarisRPCService::BlackList (arg: Paginations, ret: PolarisPeerList)
-+ polarrpc.proto::PolarisRPCService::RemoveBLEntry (arg: RmEntryParams, ret: SingleString)
 + polarrpc.proto::BLConfEntries
 + polarrpc.proto::AddEntryParams
 + polarrpc.proto::RmEntryParams

@@ -102,7 +102,7 @@ for line in fileinput.input():
 def isUnchanged(table, symbol, field):
     # Check if identical entry exists with opposite change direction
     # If so, nothing about this field (except comments, whitespace) has changed
-    reverseAddRemove = '+' if field.addOrRemove == '-' else '+'
+    reverseAddRemove = '+' if field.addOrRemove == '-' else '-'
     otherField = table[fileName].symbols[symbol.name].fields.get(reverseAddRemove + field.name, None)
     return otherField and str(otherField) == str(field)
 
