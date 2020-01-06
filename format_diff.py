@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-
 """
 This takes the output of `git diff -w -U0` on stdin,
 iterates through the lines to build a table of changes,
 and outputs it according to our defined format.
 """
+
+import sys
+assert sys.version_info >= (3, 7), 'Requires at least Python version 3.7'
 
 import fileinput
 import re
