@@ -121,8 +121,12 @@ service AergoRPCService {
   rpc ImportAccount(ImportFormat) returns (Account) {
   }
 
-  // Export account stored in this node
+  // Export account stored in this node as wif format
   rpc ExportAccount(Personal) returns (SingleBytes) {
+  }
+
+  // Export account stored in this node as keystore format
+  rpc ExportAccountKeystore(Personal) returns (SingleBytes) {
   }
 
   // Query a contract method
@@ -353,6 +357,7 @@ message ImportFormat{
   SingleBytes wif = 1;
   string oldpass = 2;
   string newpass = 3;
+  SingleBytes keystore = 4;
 }
 
 message Staking {
