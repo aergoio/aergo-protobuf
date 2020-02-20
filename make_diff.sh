@@ -7,10 +7,16 @@ if [ -z $PRE ] || [ -z $POST ]; then
   exit -1
 fi
 
-DATE=`git log --tags --simplify-by-decoration --pretty="format:%ai %d" | grep "tag: $POST"`
+DATE=`git log --simplify-by-decoration --pretty="format:%ai %d" | grep "$POST"`
 DATE_FORMAT=`date -j -f "%FT%T%z" "${DATE:0:10}T00:00:00+0000" +"%B %-d, %Y"`
 
-echo "## ${POST:1} (${DATE_FORMAT})"
+if [[ ${POST:0:1} == "v" ]]; then
+  HEADING=${POST:1}
+else
+  HEADING=$POST
+fi
+
+echo "## ${HEADING} (${DATE_FORMAT})"
 echo
 echo '```diff'
 git diff -w -U0 $PRE $POST proto | ./format_diff.py
