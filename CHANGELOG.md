@@ -1,5 +1,19 @@
 # Changelog
 
+## master (February 20, 2020)
+
+```diff
++ rpc.proto::AergoRPCService::ExportAccountKeystore (arg: Personal, ret: SingleBytes)
++ rpc.proto::AergoRPCService::keystore (type: SingleBytes, fieldNo: 4)
+```
+
+## 2.1.0 (November 27, 2019)
+
+```diff
++ rpc.proto::ChainInfo::totalvotingpower (type: bytes, fieldNo: 9)
++ rpc.proto::ChainInfo::votingreward (type: bytes, fieldNo: 10)
+```
+
 ## 2.0.0 (November 25, 2019)
 
 ```diff
