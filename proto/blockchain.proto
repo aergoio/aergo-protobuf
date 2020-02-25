@@ -55,7 +55,7 @@ message TxBody {
   bytes recipient = 3; // decoded account address
   bytes amount = 4; // variable-length big integer
   bytes payload = 5;
-  uint64 gasLimit = 6; // currently not used
+  uint64 gasLimit = 6; // maximum gas used for this transaction. 0 = no limit
   bytes gasPrice = 7; // variable-length big integer. currently not used
   TxType type = 8;
   bytes chainIdHash = 9; // hash value of chain identifier in the block
