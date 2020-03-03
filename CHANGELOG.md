@@ -1,6 +1,6 @@
 # Changelog
 
-## master (February 20, 2020)
+## 2.2.0 (March 3, 2020)
 
 ```diff
 + rpc.proto::AergoRPCService::ExportAccountKeystore (arg: Personal, ret: SingleBytes)
