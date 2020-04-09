@@ -173,10 +173,6 @@ service AergoRPCService {
   rpc GetConsensusInfo (Empty) returns (ConsensusInfo) {
   }
 
-  // Add & remove member of raft cluster
-  rpc ChangeMembership (MembershipChange) returns (MembershipChangeReply) {
-  }
-
   // Returns enterprise config
   rpc GetEnterpriseConfig (EnterpriseConfigKey) returns (EnterpriseConfig) {
   }

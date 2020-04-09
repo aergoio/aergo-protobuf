@@ -1,5 +1,11 @@
 # Changelog
 
+## master (April 9, 2020)
+
+```diff
+- rpc.proto::AergoRPCService::ChangeMembership (arg: MembershipChange, ret: MembershipChangeReply)
+```
+
 ## 2.2.0 (March 3, 2020)
 
 ```diff
