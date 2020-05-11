@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package types;
+//option go_package = "github.com/aergoio/aergo/types";
+
+import "rpc.proto";
+import "account.proto";
+
+/**
+ * AdminRPCService is the RPC service providing the methods used for administration purpose. It allows only local access
+ * by UNIX domain socket.
+ */
+service AdminRPCService {
+  // Returns the TX-relasted statistics of the current mempool.
+  rpc MempoolTxStat(Empty) returns (SingleBytes) {
+  }
+
+  // Returns the TX-relasted statistics of the current mempool.
+  rpc MempoolTx(AccountList) returns (SingleBytes) {
+  }
+}
