@@ -43,6 +43,8 @@ enum TxType {
   CALL = 5;
   DEPLOY = 6;
   MULTICALL = 7;
+  DEPLOY2 = 8;
+  REDEPLOY2 = 9;
 }
 
 message Tx {
