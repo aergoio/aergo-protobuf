@@ -73,6 +73,9 @@ service AergoRPCService {
   rpc GetReceipt(SingleBytes) returns (Receipt) {
   }
 
+  rpc GetReceipts(SingleBytes) returns (Receipts) {
+  }
+
   // Return ABI stored at contract address
   rpc GetABI(SingleBytes) returns (ABI) {
   }
