@@ -8,7 +8,7 @@ import "account.proto";
 import "node.proto";
 import "p2p.proto";
 import "metric.proto";
-import "raft.proto";
+import "aergo_raft.proto";
 
 /**
  * AergoRPCService is the main RPC service providing endpoints to interact 
