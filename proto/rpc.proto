@@ -137,6 +137,10 @@ service AergoRPCService {
   rpc QueryContractState(StateQuery) returns (StateQueryProof) {
   }
 
+  // Query EVM contract method
+  rpc QueryEVMContract(Query) returns (SingleBytes) {
+  }
+
   // Return list of peers of this node and their state
   rpc GetPeers(PeersParams) returns (PeerList) {
   }
