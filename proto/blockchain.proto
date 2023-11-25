@@ -23,8 +23,7 @@ message BlockHeader {
   bytes sign = 11; // block producer's signature of BlockHeader
   bytes consensus = 12; // consensus meta
 
-  optional bytes evmTxsRootHash = 13;
-  optional bytes evmReceiptsRootHash = 14;
+  bytes evmRootHash = 13;
   // CAUTION: WHENEVER A NEW FIELD ADDED HERE, types.lastFieldOfBH MUST BE
   // REPLACE BY IT.
 }
