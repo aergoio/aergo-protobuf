@@ -22,6 +22,7 @@ message BlockHeader {
   bytes coinbaseAccount = 10; // address of account to receive fees
   bytes sign = 11; // block producer's signature of BlockHeader
   bytes consensus = 12; // consensus meta
+  optional uint32 gasLimit = 13; // block gas limit
   // CAUTION: WHENEVER A NEW FIELD ADDED HERE, types.lastFieldOfBH MUST BE
   // REPLACE BY IT.
 }
