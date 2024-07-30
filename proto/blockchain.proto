@@ -42,6 +42,7 @@ enum TxType {
   TRANSFER = 4;
   CALL = 5;
   DEPLOY = 6;
+  MULTICALL = 7;
 }
 
 message Tx {
@@ -79,6 +80,7 @@ message State {
   bytes codeHash = 3;
   bytes storageRoot = 4;
   uint64 sqlRecoveryPoint = 5;
+  bytes sourceHash = 6;
 }
 
 message AccountProof {
