@@ -73,6 +73,10 @@ service AergoRPCService {
   rpc GetReceipt(SingleBytes) returns (Receipt) {
   }
 
+  // Return internal operations, queried by block number
+  rpc GetInternalOperations (BlockNumberParam) returns (SingleBytes) {
+  }
+
   // Return ABI stored at contract address
   rpc GetABI(SingleBytes) returns (ABI) {
   }
@@ -282,6 +286,10 @@ message ListParams {
 message PageParams {
   uint32 offset = 1;
   uint32 size = 2;
+}
+
+message BlockNumberParam {
+  uint64 blockNo = 1;
 }
 
 message BlockBodyPaged {
