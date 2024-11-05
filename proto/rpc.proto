@@ -215,6 +215,7 @@ message ChainInfo {
   bytes nameprice = 8;
   bytes totalvotingpower = 9;
   bytes votingreward= 10;
+  map<string,uint64> hardfork = 11;
 }
 
 // ChainStats corresponds to a chain statistics report.
